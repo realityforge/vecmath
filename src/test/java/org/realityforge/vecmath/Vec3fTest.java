@@ -101,4 +101,13 @@ public final class Vec3fTest
     assertSame( value.mul( 2 ), value );
     VecmathAssert.assertEquals( value, 2F, 4F, 6F );
   }
+
+  @Test
+  public void length()
+  {
+    assertEquals( new Vec3f( 1F, 0F, 0F ).length(), 1F );
+    assertEquals( new Vec3f( 0F, 1F, 0F ).length(), 1F );
+    assertEquals( new Vec3f( 0F, 0F, 1F ).length(), 1F );
+    assertEquals( new Vec3f( 1F, 2F, 3F ).length(), 3.7416575F );
+  }
 }

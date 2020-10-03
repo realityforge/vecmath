@@ -208,6 +208,16 @@ public final class Vec3f
     return this;
   }
 
+  /**
+   * Returns the length or magnitude of this vector.
+   *
+   * @return the length or magnitude of this vector
+   */
+  public float length()
+  {
+    return (float) Math.sqrt( this.x * this.x + this.y * this.y + this.z * this.z );
+  }
+
   @Override
   public int hashCode()
   {
