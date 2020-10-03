@@ -243,9 +243,10 @@ public final class Vector3f
     // a parameter and the calculation still producing the correct result
     float newX = value1.y * value2.z - value1.z * value2.y;
     float newY = value2.x * value1.z - value2.z * value1.x;
-    z = value1.x * value2.y - value1.y * value2.x;
+    final float newZ = value1.x * value2.y - value1.y * value2.x;
     x = newX;
     y = newY;
+    z = newZ;
     return this;
   }
 
