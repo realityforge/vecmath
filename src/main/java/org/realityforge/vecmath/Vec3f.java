@@ -74,8 +74,8 @@ public final class Vec3f
   @Nonnull
   public Vec3f set( @Nonnull final Vec3f other )
   {
-    this.x = other.x;
-    this.y = other.y;
+    x = other.x;
+    y = other.y;
     this.z = other.z;
     return this;
   }
@@ -139,9 +139,9 @@ public final class Vec3f
   @Nonnull
   public Vec3f add( @Nonnull final Vec3f value1, @Nonnull final Vec3f value2 )
   {
-    this.x = value1.x + value2.x;
-    this.y = value1.y + value2.y;
-    this.z = value1.z + value2.z;
+    x = value1.x + value2.x;
+    y = value1.y + value2.y;
+    z = value1.z + value2.z;
     return this;
   }
 
@@ -154,9 +154,9 @@ public final class Vec3f
   @Nonnull
   public Vec3f sub( @Nonnull final Vec3f other )
   {
-    this.x -= other.x;
-    this.y -= other.y;
-    this.z -= other.z;
+    x -= other.x;
+    y -= other.y;
+    z -= other.z;
     return this;
   }
 
@@ -187,9 +187,9 @@ public final class Vec3f
   @Nonnull
   public Vec3f sub( @Nonnull final Vec3f value1, @Nonnull final Vec3f value2 )
   {
-    this.x = value1.x - value2.x;
-    this.y = value1.y - value2.y;
-    this.z = value1.z - value2.z;
+    x = value1.x - value2.x;
+    y = value1.y - value2.y;
+    z = value1.z - value2.z;
     return this;
   }
 
@@ -202,9 +202,9 @@ public final class Vec3f
   @Nonnull
   public Vec3f mul( final float value )
   {
-    this.x *= value;
-    this.y *= value;
-    this.z *= value;
+    x *= value;
+    y *= value;
+    z *= value;
     return this;
   }
 
@@ -215,7 +215,7 @@ public final class Vec3f
    */
   public float length()
   {
-    return (float) Math.sqrt( this.x * this.x + this.y * this.y + this.z * this.z );
+    return (float) Math.sqrt( x * x + y * y + z * z );
   }
 
   /**
@@ -227,9 +227,9 @@ public final class Vec3f
   public Vec3f normalize()
   {
     final float normalizeFactor = 1.0F / length();
-    this.x = this.x * normalizeFactor;
-    this.y = this.y * normalizeFactor;
-    this.z = this.z * normalizeFactor;
+    x = x * normalizeFactor;
+    y = y * normalizeFactor;
+    z = z * normalizeFactor;
     return this;
   }
 
@@ -247,9 +247,9 @@ public final class Vec3f
     // a parameter and the calculation still producing the correct result
     float newX = value1.y * value2.z - value1.z * value2.y;
     float newY = value2.x * value1.z - value2.z * value1.x;
-    this.z = value1.x * value2.y - value1.y * value2.x;
-    this.x = newX;
-    this.y = newY;
+    z = value1.x * value2.y - value1.y * value2.x;
+    x = newX;
+    y = newY;
     return this;
   }
 
