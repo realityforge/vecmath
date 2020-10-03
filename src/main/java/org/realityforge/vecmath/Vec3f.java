@@ -253,6 +253,17 @@ public final class Vec3f
     return this;
   }
 
+  /**
+   * Compute the dot product of this vector and the other vector.
+   *
+   * @param other the other vector.
+   * @return the dot product of this vector and the other vector.
+   */
+  public float dot( @Nonnull final Vec3f other )
+  {
+    return x * other.x + y * other.y + z * other.z;
+  }
+
   @Override
   public int hashCode()
   {

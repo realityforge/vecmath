@@ -188,4 +188,40 @@ public final class Vec3fTest
       assertVecEquals( value2, x3, y3, z3 );
     }
   }
+
+  @Test
+  public void dot()
+  {
+    // Dot between orthogonal axis should be zero
+    assertDot( /* x axis */ 1F, 0F, 0F, /* y axis */  0F, 1F, 0F, 0F );
+    assertDot( /* x axis */ 1F, 0F, 0F, /* z axis */  0F, 0F, 1F, 0F );
+    assertDot( /* y axis */ 0F, 1F, 0F, /* z axis */  0F, 0F, 1F, 0F );
+
+    // Dot between identical vectors should be 1
+    assertDot( /* x axis */ 1F, 0F, 0F, /* x axis */  1F, 0F, 0F, 1F );
+    assertDot( /* y axis */ 0F, 1F, 0F, /* y axis */  0F, 1F, 0F, 1F );
+    assertDot( /* z axis */ 0F, 0F, 1F, /* z axis */  0F, 0F, 1F, 1F );
+
+    // Dot between vectors with same direction and different magnitude should be the value of the largest magnitude
+    assertDot( /* x axis */ 1F, 0F, 0F, /* x axis */  33F, 0F, 0F, 33F );
+    assertDot( /* y axis */ 0F, 1F, 0F, /* y axis */  0F, 42F, 0F, 42F );
+    assertDot( /* z axis */ 0F, 0F, 1F, /* z axis */  0F, 0F, 71F, 71F );
+
+    // now incorporate negatives
+    assertDot( /* x axis */ 1F, 0F, 0F, /* x axis */  -33F, 0F, 0F, -33F );
+    assertDot( /* y axis */ 0F, 1F, 0F, /* y axis */  0F, -42F, 0F, -42F );
+    assertDot( /* z axis */ 0F, 0F, 1F, /* z axis */  0F, 0F, -71F, -71F );
+    assertDot( /* z axis */ 0F, 0F, -1F, /* z axis */  0F, 0F, -71F, 71F );
+
+    // higglety pigglety vectors
+    assertDot( /* vector 1 */ 1F, 2F, 3F, /* vector */  4F, 5F, 6F, 32F );
+  }
+
+  private void assertDot( final float x1, final float y1, final float z1,
+                          final float x2, final float y2, final float z2,
+                          final float value )
+  {
+    assertEquals( new Vec3f( x1, y1, z1 ).dot( new Vec3f( x2, y2, z2 ) ), value );
+    assertEquals( new Vec3f( x2, y2, z2 ).dot( new Vec3f( x1, y1, z1 ) ), value );
+  }
 }
