@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 /**
  * A 3-dimensional, single-precision, floating-point vector.
  */
-public final class Vec3f
+public final class Vector3f
 {
   /**
    * The x component.
@@ -26,7 +26,7 @@ public final class Vec3f
    * Create a new Vec3f representing the zero vector.
    * i.e. all the components are <code>0</code>.
    */
-  public Vec3f()
+  public Vector3f()
   {
   }
 
@@ -37,7 +37,7 @@ public final class Vec3f
    * @param y the y component.
    * @param z the z component.
    */
-  public Vec3f( final float x, final float y, final float z )
+  public Vector3f( final float x, final float y, final float z )
   {
     this.x = x;
     this.y = y;
@@ -49,7 +49,7 @@ public final class Vec3f
    *
    * @param other the other vector.
    */
-  public Vec3f( @Nonnull final Vec3f other )
+  public Vector3f( @Nonnull final Vector3f other )
   {
     this( other.x, other.y, other.z );
   }
@@ -60,9 +60,9 @@ public final class Vec3f
    * @return a new vector with the same component values as the current vector.
    */
   @Nonnull
-  public Vec3f dup()
+  public Vector3f dup()
   {
-    return new Vec3f( this );
+    return new Vector3f( this );
   }
 
   /**
@@ -72,7 +72,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f set( @Nonnull final Vec3f other )
+  public Vector3f set( @Nonnull final Vector3f other )
   {
     x = other.x;
     y = other.y;
@@ -89,7 +89,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f set( final float x, final float y, final float z )
+  public Vector3f set( final float x, final float y, final float z )
   {
     this.x = x;
     this.y = y;
@@ -104,7 +104,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f add( @Nonnull final Vec3f other )
+  public Vector3f add( @Nonnull final Vector3f other )
   {
     x += other.x;
     y += other.y;
@@ -121,7 +121,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f add( final float x, final float y, final float z )
+  public Vector3f add( final float x, final float y, final float z )
   {
     this.x += x;
     this.y += y;
@@ -137,7 +137,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f add( @Nonnull final Vec3f value1, @Nonnull final Vec3f value2 )
+  public Vector3f add( @Nonnull final Vector3f value1, @Nonnull final Vector3f value2 )
   {
     x = value1.x + value2.x;
     y = value1.y + value2.y;
@@ -152,7 +152,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f sub( @Nonnull final Vec3f other )
+  public Vector3f sub( @Nonnull final Vector3f other )
   {
     x -= other.x;
     y -= other.y;
@@ -169,7 +169,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f sub( final float x, final float y, final float z )
+  public Vector3f sub( final float x, final float y, final float z )
   {
     this.x -= x;
     this.y -= y;
@@ -185,7 +185,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f sub( @Nonnull final Vec3f value1, @Nonnull final Vec3f value2 )
+  public Vector3f sub( @Nonnull final Vector3f value1, @Nonnull final Vector3f value2 )
   {
     x = value1.x - value2.x;
     y = value1.y - value2.y;
@@ -200,7 +200,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f mul( final float value )
+  public Vector3f mul( final float value )
   {
     x *= value;
     y *= value;
@@ -224,7 +224,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f normalize()
+  public Vector3f normalize()
   {
     return mul( 1.0F / length() );
   }
@@ -237,7 +237,7 @@ public final class Vec3f
    * @return this
    */
   @Nonnull
-  public Vec3f cross( @Nonnull final Vec3f value1, @Nonnull final Vec3f value2 )
+  public Vector3f cross( @Nonnull final Vector3f value1, @Nonnull final Vector3f value2 )
   {
     // These temp variables allow for the scenario of this being passed as
     // a parameter and the calculation still producing the correct result
@@ -255,7 +255,7 @@ public final class Vec3f
    * @param other the other vector.
    * @return the dot product of this vector and the other vector.
    */
-  public float dot( @Nonnull final Vec3f other )
+  public float dot( @Nonnull final Vector3f other )
   {
     return x * other.x + y * other.y + z * other.z;
   }
@@ -275,9 +275,9 @@ public final class Vec3f
   @Override
   public boolean equals( final Object o )
   {
-    if ( o instanceof Vec3f )
+    if ( o instanceof Vector3f )
     {
-      final Vec3f other = (Vec3f) o;
+      final Vector3f other = (Vector3f) o;
       return x == other.x && y == other.y && z == other.z;
     }
     else
