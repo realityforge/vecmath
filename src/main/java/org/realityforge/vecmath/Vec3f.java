@@ -218,6 +218,21 @@ public final class Vec3f
     return (float) Math.sqrt( this.x * this.x + this.y * this.y + this.z * this.z );
   }
 
+  /**
+   * Normalize this vector.
+   *
+   * @return this
+   */
+  @Nonnull
+  public Vec3f normalize()
+  {
+    final float normalizeFactor = 1.0F / length();
+    this.x = this.x * normalizeFactor;
+    this.y = this.y * normalizeFactor;
+    this.z = this.z * normalizeFactor;
+    return this;
+  }
+
   @Override
   public int hashCode()
   {

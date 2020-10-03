@@ -1,5 +1,6 @@
 package org.realityforge.vecmath;
 
+import javax.annotation.Nonnull;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
@@ -109,5 +110,21 @@ public final class Vec3fTest
     assertEquals( new Vec3f( 0F, 1F, 0F ).length(), 1F, 0.00001 );
     assertEquals( new Vec3f( 0F, 0F, 1F ).length(), 1F, 0.00001 );
     assertEquals( new Vec3f( 1F, 2F, 3F ).length(), 3.7416575F, 0.00001 );
+  }
+
+  @Test
+  public void normalize()
+  {
+    assertVectorNormal( new Vec3f( 1F, 0F, 0F ), 1F, 0F, 0F );
+    assertVectorNormal( new Vec3f( 0F, 1F, 0F ), 0F, 1F, 0F );
+    assertVectorNormal( new Vec3f( 0F, 0F, 1F ), 0F, 0F, 1F );
+    assertVectorNormal( new Vec3f( 1F, 2F, 3F ), 0.26726124F, 0.5345225F, 0.8017837F );
+  }
+
+  private void assertVectorNormal( @Nonnull final Vec3f vector, final float x, final float y, final float z )
+  {
+    final Vec3f normalized = vector.normalize();
+    assertVecEquals( normalized, x, y, z );
+    assertEquals( normalized.length(), 1.0F, 0.00001 );
   }
 }
