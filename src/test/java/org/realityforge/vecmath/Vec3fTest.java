@@ -16,7 +16,7 @@ public final class Vec3fTest
   @Test
   public void testHashCode()
   {
-    VecmathAssert.assertEquals( new Vec3f(), 0.0F, 0.0F, 0.0F );
+    assertVecEquals( new Vec3f(), 0.0F, 0.0F, 0.0F );
     final Vec3f value1 = new Vec3f( 1F, 2F, 3F );
     final Vec3f value2 = new Vec3f( 1F, 2F, 3F );
     final Vec3f value3 = new Vec3f( 4F, 5F, 6F );
@@ -32,9 +32,9 @@ public final class Vec3fTest
   @Test
   public void constructors()
   {
-    VecmathAssert.assertEquals( new Vec3f(), 0.0F, 0.0F, 0.0F );
-    VecmathAssert.assertEquals( new Vec3f( 1F, 2F, 3F ), 1F, 2F, 3F );
-    VecmathAssert.assertEquals( new Vec3f( new Vec3f( 1F, 2F, 3F ) ), 1F, 2F, 3F );
+    assertVecEquals( new Vec3f(), 0.0F, 0.0F, 0.0F );
+    assertVecEquals( new Vec3f( 1F, 2F, 3F ), 1F, 2F, 3F );
+    assertVecEquals( new Vec3f( new Vec3f( 1F, 2F, 3F ) ), 1F, 2F, 3F );
   }
 
   @Test
@@ -42,7 +42,7 @@ public final class Vec3fTest
   {
     final Vec3f value = new Vec3f( 1F, 2F, 3F );
     final Vec3f dup = value.dup();
-    VecmathAssert.assertEquals( dup, 1F, 2F, 3F );
+    assertVecEquals( dup, 1F, 2F, 3F );
     assertNotSame( dup, value );
     assertEquals( dup, value );
   }
@@ -51,63 +51,63 @@ public final class Vec3fTest
   public void set()
   {
     final Vec3f value = new Vec3f( 1F, 2F, 3F );
-    VecmathAssert.assertEquals( value, 1F, 2F, 3F );
+    assertVecEquals( value, 1F, 2F, 3F );
 
     assertSame( value.set( new Vec3f() ), value );
-    VecmathAssert.assertEquals( value, 0F, 0F, 0F );
+    assertVecEquals( value, 0F, 0F, 0F );
 
     assertSame( value.set( 1F, 2F, 3F ), value );
-    VecmathAssert.assertEquals( value, 1F, 2F, 3F );
+    assertVecEquals( value, 1F, 2F, 3F );
   }
 
   @Test
   public void add()
   {
     final Vec3f value = new Vec3f( 1F, 2F, 3F );
-    VecmathAssert.assertEquals( value, 1F, 2F, 3F );
+    assertVecEquals( value, 1F, 2F, 3F );
 
     assertSame( value.add( new Vec3f( 4F, 5F, 6F ) ), value );
-    VecmathAssert.assertEquals( value, 5F, 7F, 9F );
+    assertVecEquals( value, 5F, 7F, 9F );
 
     assertSame( value.add( 5F, 3F, 1F ), value );
-    VecmathAssert.assertEquals( value, 10F, 10F, 10F );
+    assertVecEquals( value, 10F, 10F, 10F );
 
     assertSame( value.add( new Vec3f( 1F, 2F, 3F ), new Vec3f( 1F, 2F, 3F ) ), value );
-    VecmathAssert.assertEquals( value, 2F, 4F, 6F );
+    assertVecEquals( value, 2F, 4F, 6F );
   }
 
   @Test
   public void sub()
   {
     final Vec3f value = new Vec3f( 1F, 2F, 3F );
-    VecmathAssert.assertEquals( value, 1F, 2F, 3F );
+    assertVecEquals( value, 1F, 2F, 3F );
 
     assertSame( value.sub( new Vec3f( 4F, 5F, 6F ) ), value );
-    VecmathAssert.assertEquals( value, -3F, -3F, -3F );
+    assertVecEquals( value, -3F, -3F, -3F );
 
     assertSame( value.sub( 5F, 3F, 1F ), value );
-    VecmathAssert.assertEquals( value, -8F, -6F, -4F );
+    assertVecEquals( value, -8F, -6F, -4F );
 
     assertSame( value.sub( new Vec3f( 1F, 2F, 3F ), new Vec3f( 1F, 2F, 3F ) ), value );
-    VecmathAssert.assertEquals( value, 0F, 0F, 0F );
+    assertVecEquals( value, 0F, 0F, 0F );
   }
 
   @Test
   public void mul()
   {
     final Vec3f value = new Vec3f( 1F, 2F, 3F );
-    VecmathAssert.assertEquals( value, 1F, 2F, 3F );
+    assertVecEquals( value, 1F, 2F, 3F );
 
     assertSame( value.mul( 2 ), value );
-    VecmathAssert.assertEquals( value, 2F, 4F, 6F );
+    assertVecEquals( value, 2F, 4F, 6F );
   }
 
   @Test
   public void length()
   {
-    assertEquals( new Vec3f( 1F, 0F, 0F ).length(), 1F );
-    assertEquals( new Vec3f( 0F, 1F, 0F ).length(), 1F );
-    assertEquals( new Vec3f( 0F, 0F, 1F ).length(), 1F );
-    assertEquals( new Vec3f( 1F, 2F, 3F ).length(), 3.7416575F );
+    assertEquals( new Vec3f( 1F, 0F, 0F ).length(), 1F, 0.00001 );
+    assertEquals( new Vec3f( 0F, 1F, 0F ).length(), 1F, 0.00001 );
+    assertEquals( new Vec3f( 0F, 0F, 1F ).length(), 1F, 0.00001 );
+    assertEquals( new Vec3f( 1F, 2F, 3F ).length(), 3.7416575F, 0.00001 );
   }
 }

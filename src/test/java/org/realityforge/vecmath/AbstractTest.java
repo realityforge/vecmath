@@ -30,4 +30,11 @@ abstract class AbstractTest
   {
     assertEquals( object.toString(), object.getClass().getName() + "@" + Integer.toHexString( object.hashCode() ) );
   }
+
+  void assertVecEquals( @Nonnull final Vec3f vec3f, final float x, final float y, final float z )
+  {
+    assertEquals( vec3f.x, x, 0.00001 );
+    assertEquals( vec3f.y, y, 0.00001 );
+    assertEquals( vec3f.z, z, 0.00001 );
+  }
 }
