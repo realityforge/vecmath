@@ -76,7 +76,7 @@ public final class Vec3f
   {
     x = other.x;
     y = other.y;
-    this.z = other.z;
+    z = other.z;
     return this;
   }
 
@@ -106,9 +106,9 @@ public final class Vec3f
   @Nonnull
   public Vec3f add( @Nonnull final Vec3f other )
   {
-    this.x += other.x;
-    this.y += other.y;
-    this.z += other.z;
+    x += other.x;
+    y += other.y;
+    z += other.z;
     return this;
   }
 
