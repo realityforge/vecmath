@@ -1,4 +1,6 @@
 <module>
+  <inherits name='grim.annotations.Annotations'/>
+
   <source path='' includes='*.java'/>
 
   <!--
