@@ -6,15 +6,15 @@ module Buildr
       # The specs for requirements
       def dependencies(version = nil)
         validation_deps =
-            %w(javax.validation:validation-api:jar:1.0.0.GA javax.validation:validation-api:jar:sources:1.0.0.GA)
+          %w(javax.validation:validation-api:jar:1.0.0.GA javax.validation:validation-api:jar:sources:1.0.0.GA)
         v = version || self.version
         gwt_dev_jar = "com.google.gwt:gwt-dev:jar:#{v}"
         if v <= '2.6.1'
           [gwt_dev_jar] + validation_deps
         elsif v == '2.7.0'
           [
-              gwt_dev_jar,
-              'org.ow2.asm:asm:jar:5.0.3'
+            gwt_dev_jar,
+            'org.ow2.asm:asm:jar:5.0.3'
           ] + validation_deps
         elsif v == '2.8.0'
           %w(
@@ -209,6 +209,7 @@ module Buildr
 
     module ProjectExtension
       protected
+
       def gwt_detect_version(dependencies)
         version = nil
         dependencies.each do |dep|
