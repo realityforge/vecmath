@@ -19,7 +19,7 @@ The Maven dependency is:
 <dependency>
   <groupId>org.realityforge.vecmath</groupId>
   <artifactId>vecmath</artifactId>
-  <version>0.01</version>
+  <version>0.02</version>
 </dependency>
 ```
 
