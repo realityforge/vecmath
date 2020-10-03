@@ -260,6 +260,17 @@ public final class Vector3f
     return x * other.x + y * other.y + z * other.z;
   }
 
+  /**
+   * Calculate the angle between this vector and the other vector.
+   *
+   * @param other the other vector.
+   * @return the angle between this vector and the other vector.
+   */
+  public float angle( @Nonnull final Vector3f other )
+  {
+    return (float) Math.acos( dot( other ) / ( length() * other.length() ) );
+  }
+
   @Override
   public int hashCode()
   {

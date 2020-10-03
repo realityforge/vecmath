@@ -224,4 +224,37 @@ public final class Vector3fTest
     assertEquals( new Vector3f( x1, y1, z1 ).dot( new Vector3f( x2, y2, z2 ) ), value );
     assertEquals( new Vector3f( x2, y2, z2 ).dot( new Vector3f( x1, y1, z1 ) ), value );
   }
+
+  @Test
+  public void angle()
+  {
+    assertAngle( /* x axis */ 1F, 0F, 0F, /* y axis */  0F, 1F, 0F, (float) ( Math.PI / 2 ) );
+    assertAngle( /* x axis */ 1F, 0F, 0F, /* z axis */  0F, 0F, 1F, (float) ( Math.PI / 2 ) );
+    assertAngle( /* y axis */ 0F, 1F, 0F, /* z axis */  0F, 0F, 1F, (float) ( Math.PI / 2 ) );
+
+    assertAngle( /* x axis */ 1F, 0F, 0F, /* x axis */  1F, 0F, 0F, 0F );
+    assertAngle( /* y axis */ 0F, 1F, 0F, /* y axis */  0F, 1F, 0F, 0F );
+    assertAngle( /* z axis */ 0F, 0F, 1F, /* z axis */  0F, 0F, 1F, 0F );
+
+    assertAngle( /* x axis */ 1F, 0F, 0F, /* x axis */  33F, 0F, 0F, 0F );
+    assertAngle( /* y axis */ 0F, 1F, 0F, /* y axis */  0F, 42F, 0F, 0F );
+    assertAngle( /* z axis */ 0F, 0F, 1F, /* z axis */  0F, 0F, 71F, 0F );
+
+    // now incorporate negatives
+    assertAngle( /* x axis */ 1F, 0F, 0F, /* x axis */  -33F, 0F, 0F, (float) Math.PI );
+    assertAngle( /* y axis */ 0F, 1F, 0F, /* y axis */  0F, -42F, 0F, (float) Math.PI );
+    assertAngle( /* z axis */ 0F, 0F, 1F, /* z axis */  0F, 0F, -71F, (float) Math.PI );
+    assertAngle( /* z axis */ 0F, 0F, -1F, /* z axis */  0F, 0F, -71F, 0F );
+
+    // higglety pigglety vectors
+    assertAngle( /* vector 1 */ 1F, 2F, 3F, /* vector */  4F, 5F, 6F, 0.2257264F );
+  }
+
+  private void assertAngle( final float x1, final float y1, final float z1,
+                            final float x2, final float y2, final float z2,
+                            final float value )
+  {
+    assertEquals( new Vector3f( x1, y1, z1 ).angle( new Vector3f( x2, y2, z2 ) ), value );
+    assertEquals( new Vector3f( x2, y2, z2 ).angle( new Vector3f( x1, y1, z1 ) ), value );
+  }
 }
