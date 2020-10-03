@@ -226,11 +226,7 @@ public final class Vec3f
   @Nonnull
   public Vec3f normalize()
   {
-    final float normalizeFactor = 1.0F / length();
-    x = x * normalizeFactor;
-    y = y * normalizeFactor;
-    z = z * normalizeFactor;
-    return this;
+    return mul( 1.0F / length() );
   }
 
   /**
