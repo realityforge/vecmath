@@ -19,7 +19,9 @@ def gwt_enhance(project, options = {})
     extra_deps += [project.file(project._(:generated, 'processors/main/java'))]
   end
 
-  dependencies = project.compile.dependencies + extra_deps + [Buildr.artifact(:gwt_user)]
+  project.compile.with Buildr::GWT.dependencies(project.gwt_detect_version(Buildr.artifacts(:gwt_user)))
+
+  dependencies = project.compile.dependencies + extra_deps
 
   gwt_modules = options[:gwt_modules] || []
   source_paths = project.compile.sources + project.iml.main_generated_resource_directories.flatten.compact + project.iml.main_generated_source_directories.flatten.compact
@@ -73,10 +75,10 @@ CONTENT
 
   project.package(:jar).tap do |j|
     extra_deps.each do |dep|
-      j.enhance([dep])
-      j.include("#{dep}/galdr")
+      j.enhance([dep]) do |j2|
+        j2.include("#{dep}/*")
+      end
     end
-    j.include(project._(:generated, 'processors/main/java/galdr')) if project.enable_annotation_processor?
     assets.each do |path|
       j.include("#{path}/*")
     end
