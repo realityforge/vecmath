@@ -1,7 +1,9 @@
 package org.realityforge.vecmath;
 
+import javax.annotation.Nonnull;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import static org.testng.Assert.*;
 
 abstract class AbstractTest
 {
@@ -15,5 +17,10 @@ abstract class AbstractTest
   void afterTest()
   {
     VecmathTestUtil.resetConfig( true );
+  }
+
+  void assertDefaultToString( @Nonnull final Object object )
+  {
+    assertEquals( object.toString(), object.getClass().getName() + "@" + Integer.toHexString( object.hashCode() ) );
   }
 }
