@@ -127,4 +127,65 @@ public final class Vec3fTest
     assertVecEquals( normalized, x, y, z );
     assertEquals( normalized.length(), 1.0F, 0.00001 );
   }
+
+  @Test
+  public void cross()
+  {
+    // x axis crossed with y axis should produce z axis
+    assertCross( 1F, 0F, 0F,
+                 0F, 1F, 0F,
+                 0F, 0F, 1F );
+
+    // x axis crossed with z axis should produce -y axis
+    assertCross( 1F, 0F, 0F,
+                 0F, 0F, 1F,
+                 0F, -1F, 0F );
+
+    // y axis crossed with z axis should produce x axis
+    assertCross( 0F, 1F, 0F,
+                 0F, 0F, 1F,
+                 1F, 0F, 0F );
+
+    // z axis crossed with y axis should produce -x axis
+    assertCross( 0F, 0F, 1F,
+                 0F, 1F, 0F,
+                 -1F, 0F, 0F );
+
+    // z axis crossed with x axis should produce y axis
+    assertCross( 0F, 0F, 1F,
+                 1F, 0F, 0F,
+                 0F, 1F, 0F );
+
+    // random vectors should produce expected cross-product
+    assertCross( 1F, 2F, 3F,
+                 4F, 5F, 6F,
+                 -3.0F, 6.0F, -3.0F );
+  }
+
+  private void assertCross( final float x1, final float y1, final float z1,
+                            final float x2, final float y2, final float z2,
+                            final float x3, final float y3, final float z3 )
+  {
+    {
+      final Vec3f value1 = new Vec3f( x1, y1, z1 );
+      final Vec3f value2 = new Vec3f( x2, y2, z2 );
+      final Vec3f value = new Vec3f();
+      value.cross( value1, value2 );
+      assertVecEquals( value, x3, y3, z3 );
+    }
+
+    {
+      final Vec3f value1 = new Vec3f( x1, y1, z1 );
+      final Vec3f value2 = new Vec3f( x2, y2, z2 );
+      value1.cross( value1, value2 );
+      assertVecEquals( value1, x3, y3, z3 );
+    }
+
+    {
+      final Vec3f value1 = new Vec3f( x1, y1, z1 );
+      final Vec3f value2 = new Vec3f( x2, y2, z2 );
+      value2.cross( value1, value2 );
+      assertVecEquals( value2, x3, y3, z3 );
+    }
+  }
 }

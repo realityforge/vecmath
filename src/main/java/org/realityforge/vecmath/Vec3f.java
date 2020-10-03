@@ -233,6 +233,26 @@ public final class Vec3f
     return this;
   }
 
+  /**
+   * Set this vector to the cross product of the specified vectors.
+   *
+   * @param value1 the first vector.
+   * @param value2 the second vector.
+   * @return this
+   */
+  @Nonnull
+  public Vec3f cross( @Nonnull final Vec3f value1, @Nonnull final Vec3f value2 )
+  {
+    // These temp variables allow for the scenario of this being passed as
+    // a parameter and the calculation still producing the correct result
+    float newX = value1.y * value2.z - value1.z * value2.y;
+    float newY = value2.x * value1.z - value2.z * value1.x;
+    this.z = value1.x * value2.y - value1.y * value2.x;
+    this.x = newX;
+    this.y = newY;
+    return this;
+  }
+
   @Override
   public int hashCode()
   {
