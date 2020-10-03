@@ -22,7 +22,7 @@ abstract class AbstractTest
   void assertDefaultToStringWhenDebugToStringDisabled( @Nonnull final Object object )
   {
     VecmathTestUtil.disableDebugToString();
-    assertDefaultToString( new Vec3f() );
+    assertDefaultToString( object );
     VecmathTestUtil.enableDebugToString();
   }
 
