@@ -33,8 +33,18 @@ abstract class AbstractTest
 
   void assertVecEquals( @Nonnull final Vec3f vec3f, final float x, final float y, final float z )
   {
-    assertEquals( vec3f.x, x, 0.00001 );
-    assertEquals( vec3f.y, y, 0.00001 );
-    assertEquals( vec3f.z, z, 0.00001 );
+    final Vec3f actual = new Vec3f( x, y, z );
+    assertEquals( vec3f.x,
+                  x,
+                  0.00001,
+                  "Expected " + vec3f + " to contain an x component of " + x + " but actual vec is " + actual );
+    assertEquals( vec3f.y,
+                  y,
+                  0.00001,
+                  "Expected " + vec3f + " to contain an y component of " + y + " but actual vec is " + actual );
+    assertEquals( vec3f.z,
+                  z,
+                  0.00001,
+                  "Expected " + vec3f + " to contain an z component of " + z + " but actual vec is " + actual );
   }
 }
