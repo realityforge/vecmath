@@ -1,0 +1,9 @@
+<module>
+  <inherits name='org.realityforge.vecmath.Vecmath'/>
+
+  <source path='ignored'/>
+
+  <set-property name='vecmath.environment' value='development'/>
+
+  <set-property name='vecmath.isDebugToStringEnabled' value='true'/>
+</module>

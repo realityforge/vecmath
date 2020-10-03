@@ -1,0 +1,14 @@
+<module>
+  <source path='' includes='*.java'/>
+
+  <!--
+    These properties are all defined in VecmathConfig
+    See that class for a better understanding of what these properties do.
+  -->
+
+  <define-property name='vecmath.environment' values='development,production'/>
+  <set-property name='vecmath.environment' value='production'/>
+
+  <define-property name='vecmath.isDebugToStringEnabled' values='true,false'/>
+  <set-property name='vecmath.isDebugToStringEnabled' value='false'/>
+</module>
