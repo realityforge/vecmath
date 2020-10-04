@@ -286,14 +286,7 @@ public final class Vector3f
   @Override
   public int hashCode()
   {
-    if ( Vecmath.isObjectEqualsImplemented() )
-    {
-      return Objects.hash( x, y, z );
-    }
-    else
-    {
-      return super.hashCode();
-    }
+    return Vecmath.isObjectEqualsImplemented() ? Objects.hash( x, y, z ) : super.hashCode();
   }
 
   /**
