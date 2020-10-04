@@ -298,22 +298,7 @@ public final class Vector3f
   @Override
   public boolean equals( final Object o )
   {
-    if ( Vecmath.isObjectEqualsImplemented() )
-    {
-      if ( o instanceof Vector3f )
-      {
-        final Vector3f other = (Vector3f) o;
-        return isEqualTo( other );
-      }
-      else
-      {
-        return false;
-      }
-    }
-    else
-    {
-      return super.equals( o );
-    }
+    return Vecmath.isObjectEqualsImplemented() ? o instanceof Vector3f && isEqualTo( (Vector3f) o ) : super.equals( o );
   }
 
   /**
