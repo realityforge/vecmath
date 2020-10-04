@@ -272,6 +272,17 @@ public final class Vector3f
     return (float) Math.acos( dot( other ) / ( length() * other.length() ) );
   }
 
+  /**
+   * Returns true if the other vector has components with the same values.
+   *
+   * @param other the other vetcotr.
+   * @return true if the other vector has components with the same values, otherwise false.
+   */
+  public boolean isEqualTo( @Nonnull final Vector3f other )
+  {
+    return x == other.x && y == other.y && z == other.z;
+  }
+
   @Override
   public int hashCode()
   {
@@ -299,7 +310,7 @@ public final class Vector3f
       if ( o instanceof Vector3f )
       {
         final Vector3f other = (Vector3f) o;
-        return x == other.x && y == other.y && z == other.z;
+        return isEqualTo( other );
       }
       else
       {

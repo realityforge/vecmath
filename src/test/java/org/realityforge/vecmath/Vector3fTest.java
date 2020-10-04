@@ -15,6 +15,17 @@ public final class Vector3fTest
   }
 
   @Test
+  public void isEqualTo()
+  {
+    final Vector3f value1 = new Vector3f( 1F, 2F, 3F );
+    final Vector3f value2 = new Vector3f( 1F, 2F, 3F );
+    final Vector3f value3 = new Vector3f( 4F, 5F, 6F );
+    assertTrue( value1.isEqualTo( value1 ) );
+    assertTrue( value1.isEqualTo( value2 ) );
+    assertFalse( value1.isEqualTo( value3 ) );
+  }
+
+  @Test
   public void testHashCode()
   {
     VecmathTestUtil.enableObjectEquals();
