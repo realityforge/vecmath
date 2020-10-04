@@ -18,7 +18,6 @@ public final class Vector3fTest
   public void testHashCode()
   {
     VecmathTestUtil.enableObjectEquals();
-    assertVecEquals( new Vector3f(), 0.0F, 0.0F, 0.0F );
     final Vector3f value1 = new Vector3f( 1F, 2F, 3F );
     final Vector3f value2 = new Vector3f( 1F, 2F, 3F );
     final Vector3f value3 = new Vector3f( 4F, 5F, 6F );
