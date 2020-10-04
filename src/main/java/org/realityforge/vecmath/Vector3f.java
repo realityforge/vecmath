@@ -309,6 +309,6 @@ public final class Vector3f
   @Override
   public String toString()
   {
-    return VecmathConfig.isDebugToStringEnabled() ? "(" + x + ", " + y + ", " + z + ")" : super.toString();
+    return Vecmath.isDebugToStringEnabled() ? "(" + x + ", " + y + ", " + z + ")" : super.toString();
   }
 }
