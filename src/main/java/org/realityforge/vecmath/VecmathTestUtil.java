@@ -13,6 +13,7 @@ public final class VecmathTestUtil
   private VecmathTestUtil()
   {
   }
+
   /**
    * Reset the state of Arez config to either production or development state.
    *
