@@ -275,7 +275,7 @@ public final class Vector3f
   /**
    * Returns true if the other vector has components with the same values.
    *
-   * @param other the other vetcotr.
+   * @param other the other vector.
    * @return true if the other vector has components with the same values, otherwise false.
    */
   public boolean isEqualTo( @Nonnull final Vector3f other )
