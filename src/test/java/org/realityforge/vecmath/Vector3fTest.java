@@ -17,6 +17,7 @@ public final class Vector3fTest
   @Test
   public void testHashCode()
   {
+    VecmathTestUtil.enableObjectEquals();
     assertVecEquals( new Vector3f(), 0.0F, 0.0F, 0.0F );
     final Vector3f value1 = new Vector3f( 1F, 2F, 3F );
     final Vector3f value2 = new Vector3f( 1F, 2F, 3F );
@@ -28,6 +29,24 @@ public final class Vector3fTest
     assertNotEquals( value1.hashCode(), value3.hashCode() );
     assertNotEquals( value3, value1 );
     assertNotEquals( value3.hashCode(), value1.hashCode() );
+  }
+
+  @Test
+  public void testHashCode_whenObjectEqualsDisabled()
+  {
+    final Vector3f value1 = new Vector3f( 1F, 2F, 3F );
+    final Vector3f value2 = new Vector3f( 1F, 2F, 3F );
+
+    assertVecEquals( value1, 1F, 2F, 3F );
+    assertEquals( value1, value1 );
+    assertEquals( value1.hashCode(), value1.hashCode() );
+
+    assertVecEquals( value2, 1F, 2F, 3F );
+    assertEquals( value2, value2 );
+    assertEquals( value2.hashCode(), value2.hashCode() );
+
+    assertNotEquals( value1, value2 );
+    assertNotEquals( value1.hashCode(), value2.hashCode() );
   }
 
   @Test
@@ -45,7 +64,6 @@ public final class Vector3fTest
     final Vector3f dup = value.dup();
     assertVecEquals( dup, 1F, 2F, 3F );
     assertNotSame( dup, value );
-    assertEquals( dup, value );
   }
 
   @Test

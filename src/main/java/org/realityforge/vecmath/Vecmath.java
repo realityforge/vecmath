@@ -19,4 +19,16 @@ public final class Vecmath
   {
     return VecmathConfig.isDebugToStringEnabled();
   }
+
+  /**
+   * Return true if {@link Object#equals(Object)} and {@link Object#hashCode()} methods are implemented by geometric objects.
+   * The value returned is a compile-time setting that is used to strip these methods if they are not needed. Most applications
+   * will not need these methods.
+   *
+   * @return true if {@link Object#equals(Object)} and {@link Object#hashCode()} methods are implemented by geometric objects.
+   */
+  public static boolean isObjectEqualsImplemented()
+  {
+    return VecmathConfig.isObjectEqualsImplemented();
+  }
 }

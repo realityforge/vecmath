@@ -9,3 +9,6 @@ arez.environment = goog.define('vecmath.environment', 'production');
 
 /** @define {string} */
 arez.enable_names = goog.define('vecmath.isDebugToStringEnabled', 'false');
+
+/** @define {string} */
+arez.enable_names = goog.define('vecmath.isObjectEqualsImplemented', 'false');

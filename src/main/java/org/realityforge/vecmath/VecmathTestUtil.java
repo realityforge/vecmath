@@ -38,6 +38,7 @@ public final class VecmathTestUtil
     {
       enableDebugToString();
     }
+    disableObjectEquals();
   }
 
   /**
@@ -64,6 +65,32 @@ public final class VecmathTestUtil
   private static void setDebugToString( final boolean value )
   {
     setConstant( "CONFIG_isDebugToStringEnabled", value );
+  }
+
+  /**
+   * Set the `vecmath.isDebugToStringEnabled` setting to true.
+   */
+  public static void enableObjectEquals()
+  {
+    setObjectEquals( true );
+  }
+
+  /**
+   * Set the `vecmath.isObjectEqualsImplemented` setting to false.
+   */
+  public static void disableObjectEquals()
+  {
+    setObjectEquals( false );
+  }
+
+  /**
+   * Configure the `vecmath.isObjectEqualsImplemented` setting.
+   *
+   * @param value the setting.
+   */
+  private static void setObjectEquals( final boolean value )
+  {
+    setConstant( "CONFIG_isObjectEqualsImplemented", value );
   }
 
   /**

@@ -275,7 +275,14 @@ public final class Vector3f
   @Override
   public int hashCode()
   {
-    return Objects.hash( x, y, z );
+    if ( Vecmath.isObjectEqualsImplemented() )
+    {
+      return Objects.hash( x, y, z );
+    }
+    else
+    {
+      return super.hashCode();
+    }
   }
 
   /**
@@ -287,14 +294,21 @@ public final class Vector3f
   @Override
   public boolean equals( final Object o )
   {
-    if ( o instanceof Vector3f )
+    if ( Vecmath.isObjectEqualsImplemented() )
     {
-      final Vector3f other = (Vector3f) o;
-      return x == other.x && y == other.y && z == other.z;
+      if ( o instanceof Vector3f )
+      {
+        final Vector3f other = (Vector3f) o;
+        return x == other.x && y == other.y && z == other.z;
+      }
+      else
+      {
+        return false;
+      }
     }
     else
     {
-      return false;
+      return super.equals( o );
     }
   }
 

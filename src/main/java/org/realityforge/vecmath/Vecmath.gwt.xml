@@ -13,4 +13,7 @@
 
   <define-property name='vecmath.isDebugToStringEnabled' values='true,false'/>
   <set-property name='vecmath.isDebugToStringEnabled' value='false'/>
+
+  <define-property name='vecmath.isObjectEqualsImplemented' values='true,false'/>
+  <set-property name='vecmath.isObjectEqualsImplemented' value='false'/>
 </module>

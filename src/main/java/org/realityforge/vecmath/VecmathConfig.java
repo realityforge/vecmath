@@ -14,6 +14,7 @@ final class VecmathConfig
   private static final ConfigProvider PROVIDER = new ConfigProvider();
   private static final boolean PRODUCTION_ENVIRONMENT = PROVIDER.isProductionEnvironment();
   private static boolean CONFIG_isDebugToStringEnabled = PROVIDER.isDebugToStringEnabled();
+  private static boolean CONFIG_isObjectEqualsImplemented = PROVIDER.isDebugToStringEnabled();
 
   private VecmathConfig()
   {
@@ -34,6 +35,11 @@ final class VecmathConfig
     return CONFIG_isDebugToStringEnabled;
   }
 
+  static boolean isObjectEqualsImplemented()
+  {
+    return CONFIG_isObjectEqualsImplemented;
+  }
+
   private static final class ConfigProvider
     extends AbstractConfigProvider
   {
@@ -51,6 +57,14 @@ final class VecmathConfig
       return "true".equals( System.getProperty( "vecmath.isDebugToStringEnabled",
                                                 isProductionEnvironment() ? "false" : "true" ) );
     }
+
+    @GwtIncompatible
+    @Override
+    boolean isObjectEqualsImplemented()
+    {
+      return "true".equals( System.getProperty( "vecmath.isObjectEqualsImplemented",
+                                                isProductionEnvironment() ? "false" : "true" ) );
+    }
   }
 
   @SuppressWarnings( { "unused", "StringEquality" } )
@@ -64,6 +78,11 @@ final class VecmathConfig
     boolean isDebugToStringEnabled()
     {
       return "true" == System.getProperty( "vecmath.isDebugToStringEnabled" );
+    }
+
+    boolean isObjectEqualsImplemented()
+    {
+      return "true" == System.getProperty( "vecmath.isObjectEqualsImplemented" );
     }
   }
 }
