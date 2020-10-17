@@ -285,4 +285,27 @@ public final class Vector3fTest
     assertEquals( new Vector3f( x1, y1, z1 ).angle( new Vector3f( x2, y2, z2 ) ), value );
     assertEquals( new Vector3f( x2, y2, z2 ).angle( new Vector3f( x1, y1, z1 ) ), value );
   }
+
+  @Test
+  public void lerp()
+  {
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 0, /* result */ 0, 0, 0 );
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 1, /* result */ 1, 1, 1 );
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 0.5F, /* result */ 0.5F, 0.5F, 0.5F );
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 0.15F, /* result */ 0.15F, 0.15F, 0.15F );
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 0.75F, /* result */ 0.75F, 0.75F, 0.75F );
+
+    assertLerp( /* v1 */ 9, 4, 3, /* v2 */  2, -2, 9, /* factor */ 0.32F, /* result */ 6.76F, 2.08F, 4.92F );
+  }
+
+  private void assertLerp( final float x1, final float y1, final float z1,
+                           final float x2, final float y2, final float z2,
+                           final float interpolationValue,
+                           final float x3, final float y3, final float z3 )
+  {
+    assertVecEquals( new Vector3f( x1, y1, z1 ).lerp( new Vector3f( x2, y2, z2 ), interpolationValue ),
+                     x3, y3, z3 );
+    assertVecEquals( new Vector3f().lerp( new Vector3f( x1, y1, z1 ), new Vector3f( x2, y2, z2 ), interpolationValue ),
+                     x3, y3, z3 );
+  }
 }

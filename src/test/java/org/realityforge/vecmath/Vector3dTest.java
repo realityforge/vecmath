@@ -285,4 +285,27 @@ public final class Vector3dTest
     assertEquals( new Vector3d( x1, y1, z1 ).angle( new Vector3d( x2, y2, z2 ) ), value );
     assertEquals( new Vector3d( x2, y2, z2 ).angle( new Vector3d( x1, y1, z1 ) ), value );
   }
+
+  @Test
+  public void lerp()
+  {
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 0, /* result */ 0, 0, 0 );
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 1, /* result */ 1, 1, 1 );
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 0.5, /* result */ 0.5, 0.5, 0.5 );
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 0.15, /* result */ 0.15, 0.15, 0.15 );
+    assertLerp( /* v1 */ 0, 0, 0, /* v2 */  1, 1, 1, /* factor */ 0.75, /* result */ 0.75, 0.75, 0.75 );
+
+    assertLerp( /* v1 */ 9, 4, 3, /* v2 */  2, -2, 9, /* factor */ 0.32, /* result */ 6.76, 2.08, 4.92 );
+  }
+
+  private void assertLerp( final double x1, final double y1, final double z1,
+                           final double x2, final double y2, final double z2,
+                           final double interpolationValue,
+                           final double x3, final double y3, final double z3 )
+  {
+    assertVecEquals( new Vector3d( x1, y1, z1 ).lerp( new Vector3d( x2, y2, z2 ), interpolationValue ),
+                     x3, y3, z3 );
+    assertVecEquals( new Vector3d().lerp( new Vector3d( x1, y1, z1 ), new Vector3d( x2, y2, z2 ), interpolationValue ),
+                     x3, y3, z3 );
+  }
 }

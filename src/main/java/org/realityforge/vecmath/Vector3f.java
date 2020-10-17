@@ -273,6 +273,41 @@ public final class Vector3f
   }
 
   /**
+   * Linearly interpolate this vector and the other vector using the specified interpolation factor and store the
+   * result in this vector.
+   *
+   * @param other               the other vector
+   * @param interpolationFactor the interpolation factor. A value between 0.0 and 1.0.
+   * @return this
+   */
+  @Nonnull
+  public Vector3f lerp( @Nonnull final Vector3f other, final float interpolationFactor )
+  {
+    return lerp( this, other, interpolationFactor );
+  }
+
+  /**
+   * Linearly interpolate the <code>value1</code> vector and the <code>value2</code> vector using
+   * the specified <code>interpolationFactor</code> and store the result in this vector.
+   *
+   * @param value1              the first vector.
+   * @param value2              the second vector.
+   * @param interpolationFactor the interpolation factor. A value between 0.0 and 1.0.
+   * @return this
+   */
+  @Nonnull
+  public Vector3f lerp( @Nonnull final Vector3f value1,
+                        @Nonnull final Vector3f value2,
+                        final float interpolationFactor )
+  {
+    assert interpolationFactor >= 0.0 && interpolationFactor <= 1.0;
+    x = ( value2.x - value1.x ) * interpolationFactor + value1.x;
+    y = ( value2.y - value1.y ) * interpolationFactor + value1.y;
+    z = ( value2.z - value1.z ) * interpolationFactor + value1.z;
+    return this;
+  }
+
+  /**
    * Returns true if the other vector has components with the same values.
    *
    * @param other the other vector.
