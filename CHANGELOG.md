@@ -1,6 +1,7 @@
 # Change Log
 
-### Unreleased
+### [v0.04](https://github.com/realityforge/vecmath/tree/v0.04) (2020-10-18)
+[Full Changelog](https://github.com/realityforge/vecmath/compare/v0.03...v0.04)
 
 * Add `Vector3f.isEqualTo(Vector3f)` method that can be invoked even if the `vecmath.isObjectEqualsImplemented`
   compile-time constant is set to `false`.
