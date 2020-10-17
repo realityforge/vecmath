@@ -32,3 +32,11 @@ a [Contributing](CONTRIBUTING.md) document is under development.
 # License
 
 The project is licensed under [Apache License, Version 2.0](LICENSE).
+
+# Credit
+
+The toolkit took inspiration from a number of different frameworks. The authors familiarity with with the
+`javax.vecmath` package from the Java3D suite means that it is likely that many affordances originated with
+that package. The author was also using the [JOML](https://github.com/JOML-CI/JOML) (a `Java math library
+for OpenGL rendering calculations`) and [glMatrix](https://github.com/toji/gl-matrix) (a `Javascript Matrix and
+Vector library for High Performance WebGL apps`) libraries while evolving this project.
