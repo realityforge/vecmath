@@ -4,6 +4,8 @@
 
 * Add `Vector3f.isEqualTo(Vector3f)` method that can be invoked even if the `vecmath.isObjectEqualsImplemented`
   compile-time constant is set to `false`.
+* Introduce a `Vector3d` which has feature parity with `Vector3f` except that the components are represented
+  using double precision floating point numbers.
 
 ### [v0.03](https://github.com/realityforge/vecmath/tree/v0.03) (2020-10-04)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.02...v0.03)
