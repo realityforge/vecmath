@@ -31,20 +31,20 @@ abstract class AbstractTest
     assertEquals( object.toString(), object.getClass().getName() + "@" + Integer.toHexString( object.hashCode() ) );
   }
 
-  void assertVecEquals( @Nonnull final Vector3f vec3f, final float x, final float y, final float z )
+  void assertVecEquals( @Nonnull final Vector3f actual, final float x, final float y, final float z )
   {
-    final Vector3f actual = new Vector3f( x, y, z );
-    assertEquals( vec3f.x,
+    final Vector3f expected = new Vector3f( x, y, z );
+    assertEquals( actual.x,
                   x,
                   0.00001,
-                  "Expected " + vec3f + " to contain an x component of " + x + " but actual vec is " + actual );
-    assertEquals( vec3f.y,
+                  "Expected " + actual + " to contain an x component of " + x + ". Expected: " + expected );
+    assertEquals( actual.y,
                   y,
                   0.00001,
-                  "Expected " + vec3f + " to contain an y component of " + y + " but actual vec is " + actual );
-    assertEquals( vec3f.z,
+                  "Expected " + actual + " to contain an y component of " + y + ". Expected: " + expected );
+    assertEquals( actual.z,
                   z,
                   0.00001,
-                  "Expected " + vec3f + " to contain an z component of " + z + " but actual vec is " + actual );
+                  "Expected " + actual + " to contain an z component of " + z + ". Expected: " + expected );
   }
 }
