@@ -132,6 +132,16 @@ public final class Vector3dTest
   }
 
   @Test
+  public void div()
+  {
+    final Vector3d value = new Vector3d( 1, 2, 3 );
+    assertVecEquals( value, 1, 2, 3 );
+
+    assertSame( value.div( 2 ), value );
+    assertVecEquals( value, 0.5, 1, 1.5 );
+  }
+
+  @Test
   public void length()
   {
     assertEquals( new Vector3d( 1, 0, 0 ).length(), 1, 0.00001 );

@@ -209,6 +209,21 @@ public final class Vector3d
   }
 
   /**
+   * Divide this vector by the specified scalar value.
+   *
+   * @param value the value to divide vector by.
+   * @return this
+   */
+  @Nonnull
+  public Vector3d div( final double value )
+  {
+    x /= value;
+    y /= value;
+    z /= value;
+    return this;
+  }
+
+  /**
    * Returns the length or magnitude of this vector.
    *
    * @return the length or magnitude of this vector

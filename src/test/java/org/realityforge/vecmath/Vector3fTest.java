@@ -132,6 +132,16 @@ public final class Vector3fTest
   }
 
   @Test
+  public void div()
+  {
+    final Vector3f value = new Vector3f( 1, 2, 3 );
+    assertVecEquals( value, 1, 2, 3 );
+
+    assertSame( value.div( 2 ), value );
+    assertVecEquals( value, 0.5F, 1, 1.5F );
+  }
+
+  @Test
   public void length()
   {
     assertEquals( new Vector3f( 1F, 0F, 0F ).length(), 1F, 0.00001 );
