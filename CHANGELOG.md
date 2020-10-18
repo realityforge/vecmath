@@ -1,6 +1,7 @@
 # Change Log
 
-### Unreleased
+### [v0.06](https://github.com/realityforge/vecmath/tree/v0.06) (2020-10-18)
+[Full Changelog](https://github.com/realityforge/vecmath/compare/v0.05...v0.06)
 
 * Add `div` (scalar divide) method to `Vector3[fd]`.
 
