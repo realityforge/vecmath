@@ -1,5 +1,7 @@
 # Change Log
 
+### Unreleased
+
 ### [v0.07](https://github.com/realityforge/vecmath/tree/v0.07) (2020-10-18)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.06...v0.07)
 
