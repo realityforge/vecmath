@@ -31,6 +31,19 @@ abstract class AbstractTest
     assertEquals( object.toString(), object.getClass().getName() + "@" + Integer.toHexString( object.hashCode() ) );
   }
 
+  void assertVecEquals( @Nonnull final Vector2d actual, final double x, final double y )
+  {
+    final Vector2d expected = new Vector2d( x, y );
+    assertEquals( actual.x,
+                  x,
+                  0.00001,
+                  "Expected " + actual + " to contain an x component of " + x + ". Expected: " + expected );
+    assertEquals( actual.y,
+                  y,
+                  0.00001,
+                  "Expected " + actual + " to contain an y component of " + y + ". Expected: " + expected );
+  }
+
   void assertVecEquals( @Nonnull final Vector3d actual, final double x, final double y, final double z )
   {
     final Vector3d expected = new Vector3d( x, y, z );
