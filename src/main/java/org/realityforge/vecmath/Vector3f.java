@@ -23,7 +23,7 @@ public final class Vector3f
   public float z;
 
   /**
-   * Create a new Vec3f representing the zero vector.
+   * Create a new vector representing the zero vector.
    * i.e. all the components are <code>0</code>.
    */
   public Vector3f()
@@ -31,7 +31,7 @@ public final class Vector3f
   }
 
   /**
-   * Create a new Vec3f with the specified components.
+   * Create a new vector with the specified components.
    *
    * @param x the x component.
    * @param y the y component.
@@ -45,7 +45,7 @@ public final class Vector3f
   }
 
   /**
-   * Create a new Vec3f from the other vector.
+   * Create a new vector from the other vector.
    *
    * @param other the other vector.
    */
