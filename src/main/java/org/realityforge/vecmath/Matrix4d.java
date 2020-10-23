@@ -212,10 +212,10 @@ public final class Matrix4d
   }
 
   /**
-   * Fill the array with the matrix components.
+   * Fill the specified target with the matrix components starting at the specified offset.
    * The components are emitted in row-major form.
    *
-   * @param target the array which to store the matrix components. The target must be large enough to contain the matrix.
+   * @param target the array in which to store the matrix components. The target must be large enough to contain the matrix.
    * @param offset the offset in the target array to start storing the matrix components.
    * @return the matrix represented as an array.
    */
@@ -242,10 +242,10 @@ public final class Matrix4d
   }
 
   /**
-   * Fill the array with the matrix components.
+   * Fill the specified target with the matrix components.
    * The components are emitted in row-major form.
    *
-   * @param target the array which to store the matrix components. The target must be large enough to contain the matrix.
+   * @param target the array in which to store the matrix components. The target must be large enough to contain the matrix.
    * @return the matrix represented as an array.
    */
   @Nonnull
