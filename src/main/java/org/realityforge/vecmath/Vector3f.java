@@ -333,6 +333,17 @@ public final class Vector3f
     return x == other.x && y == other.y && z == other.z;
   }
 
+  /**
+   * Returns a string representation of the vector.
+   *
+   * @return a string representation of the vector.
+   */
+  @Nonnull
+  public String asString()
+  {
+    return "(" + x + ", " + y + ", " + z + ")";
+  }
+
   @Override
   public int hashCode()
   {
@@ -364,6 +375,6 @@ public final class Vector3f
   @Override
   public String toString()
   {
-    return Vecmath.isDebugToStringEnabled() ? "(" + x + ", " + y + ", " + z + ")" : super.toString();
+    return Vecmath.isDebugToStringEnabled() ? asString() : super.toString();
   }
 }

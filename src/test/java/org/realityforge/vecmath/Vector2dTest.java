@@ -15,6 +15,14 @@ public final class Vector2dTest
   }
 
   @Test
+  public void asString()
+  {
+    assertEquals( new Vector2d().asString(), "(0.0, 0.0)" );
+    VecmathTestUtil.disableDebugToString();
+    assertEquals( new Vector2d().asString(), "(0.0, 0.0)" );
+  }
+
+  @Test
   public void isEqualTo()
   {
     final Vector2d value1 = new Vector2d( 1, 2 );

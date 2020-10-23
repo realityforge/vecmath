@@ -248,7 +248,7 @@ public final class Vector2d
     double det = x * other.y - y * other.x;
     return Math.atan2( det, dot );
 
-//    return Math.acos( dot( other ) / ( length() * other.length() ) );
+    //    return Math.acos( dot( other ) / ( length() * other.length() ) );
   }
 
   /**
@@ -296,6 +296,17 @@ public final class Vector2d
     return x == other.x && y == other.y;
   }
 
+  /**
+   * Returns a string representation of the vector.
+   *
+   * @return a string representation of the vector.
+   */
+  @Nonnull
+  public String asString()
+  {
+    return "(" + x + ", " + y + ")";
+  }
+
   @Override
   public int hashCode()
   {
@@ -327,6 +338,6 @@ public final class Vector2d
   @Override
   public String toString()
   {
-    return Vecmath.isDebugToStringEnabled() ? "(" + x + ", " + y + ")" : super.toString();
+    return Vecmath.isDebugToStringEnabled() ? asString() : super.toString();
   }
 }

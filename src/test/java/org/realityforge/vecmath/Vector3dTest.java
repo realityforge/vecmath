@@ -15,6 +15,14 @@ public final class Vector3dTest
   }
 
   @Test
+  public void asString()
+  {
+    assertEquals( new Vector3d().asString(), "(0.0, 0.0, 0.0)" );
+    VecmathTestUtil.disableDebugToString();
+    assertEquals( new Vector3d().asString(), "(0.0, 0.0, 0.0)" );
+  }
+
+  @Test
   public void isEqualTo()
   {
     final Vector3d value1 = new Vector3d( 1, 2, 3 );

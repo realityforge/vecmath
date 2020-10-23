@@ -15,6 +15,14 @@ public final class Vector3fTest
   }
 
   @Test
+  public void asString()
+  {
+    assertEquals( new Vector3f().asString(), "(0.0, 0.0, 0.0)" );
+    VecmathTestUtil.disableDebugToString();
+    assertEquals( new Vector3f().asString(), "(0.0, 0.0, 0.0)" );
+  }
+
+  @Test
   public void isEqualTo()
   {
     final Vector3f value1 = new Vector3f( 1F, 2F, 3F );
