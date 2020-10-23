@@ -323,6 +323,45 @@ public final class Vector3d
   }
 
   /**
+   * Fill the specified target with the vector components starting at the specified offset.
+   *
+   * @param target the array in which to store the vector components. The target must be large enough to contain the vector.
+   * @param offset the offset in the target array to start storing the vector components.
+   * @return the vector represented as an array.
+   */
+  @Nonnull
+  public double[] toArray( final double[] target, final int offset )
+  {
+    target[ offset ] = x;
+    target[ offset + 1 ] = y;
+    target[ offset + 2 ] = z;
+    return target;
+  }
+
+  /**
+   * Fill the specified target with the vector components.
+   *
+   * @param target the array in which to store the vector components. The target must be large enough to contain the vector.
+   * @return the vector represented as an array.
+   */
+  @Nonnull
+  public double[] toArray( final double[] target )
+  {
+    return toArray( target, 0 );
+  }
+
+  /**
+   * Create an array to represent the vector.
+   *
+   * @return the vector represented as an array.
+   */
+  @Nonnull
+  public double[] toArray()
+  {
+    return toArray( new double[ 3 ] );
+  }
+
+  /**
    * Returns true if the other vector has components with the same values.
    *
    * @param other the other vector.

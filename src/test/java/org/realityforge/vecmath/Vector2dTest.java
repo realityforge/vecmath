@@ -260,4 +260,15 @@ public final class Vector2dTest
                      x3,
                      y3 );
   }
+
+  @Test
+  public void toArray()
+  {
+    final Vector2d value = new Vector2d( 1, 2 );
+
+    assertArray( value.toArray(), "[1.0, 2.0]" );
+
+    // Now with an offset
+    assertArray( value.toArray( new double[ 6 ], 2 ), "[0.0, 0.0, 1.0, 2.0, 0.0, 0.0]" );
+  }
 }

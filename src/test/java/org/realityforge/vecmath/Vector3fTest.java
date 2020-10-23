@@ -326,4 +326,15 @@ public final class Vector3fTest
     assertVecEquals( new Vector3f().lerp( new Vector3f( x1, y1, z1 ), new Vector3f( x2, y2, z2 ), interpolationValue ),
                      x3, y3, z3 );
   }
+
+  @Test
+  public void toArray()
+  {
+    final Vector3f value = new Vector3f( 1, 2, 3 );
+
+    assertArray( value.toArray(), "[1.0, 2.0, 3.0]" );
+
+    // Now with an offset
+    assertArray( value.toArray( new double[ 7 ], 2 ), "[0.0, 0.0, 1.0, 2.0, 3.0, 0.0, 0.0]" );
+  }
 }
