@@ -120,22 +120,11 @@ public final class Matrix4dTest
   {
     final Matrix4d value = new Matrix4d( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 );
 
-    assertEquals( Arrays.asList( boxArray( value.toArray() ) ).toString(),
-                  "[1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0]" );
+    assertArray( value.toArray(),
+                 "[1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0]" );
 
     // Now with an offset
-    assertEquals( Arrays.asList( boxArray( value.toArray( new double[ 20 ], 2 ) ) ).toString(),
-                  "[0.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 0.0, 0.0]" );
-  }
-
-  @Nonnull
-  private Double[] boxArray( final double[] value )
-  {
-    final Double[] result = new Double[ value.length ];
-    for ( int i = 0; i < value.length; i++ )
-    {
-      result[ i ] = value[ i ];
-    }
-    return result;
+    assertArray( value.toArray( new double[ 20 ], 2 ),
+                 "[0.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 0.0, 0.0]" );
   }
 }

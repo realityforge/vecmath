@@ -1,5 +1,6 @@
 package org.realityforge.vecmath;
 
+import java.util.Arrays;
 import javax.annotation.Nonnull;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -150,5 +151,21 @@ abstract class AbstractTest
                   m33,
                   0.00001,
                   "Expected " + actual + " to contain an m33 component of " + m33 + ". Expected: " + expected );
+  }
+
+  protected final void assertArray( @Nonnull final double[] doubles, @Nonnull final String expected )
+  {
+    assertEquals( Arrays.asList( boxArray( doubles ) ).toString(), expected );
+  }
+
+  @Nonnull
+  private Double[] boxArray( @Nonnull final double[] value )
+  {
+    final Double[] result = new Double[ value.length ];
+    for ( int i = 0; i < value.length; i++ )
+    {
+      result[ i ] = value[ i ];
+    }
+    return result;
   }
 }
