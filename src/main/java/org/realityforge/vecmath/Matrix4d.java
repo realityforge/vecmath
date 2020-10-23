@@ -35,11 +35,11 @@ public final class Matrix4d
   public double m33;
 
   /**
-   * Create a new matrix representing the zero matrix.
-   * i.e. all the components are <code>0</code>.
+   * Create a new matrix representing the identity matrix.
    */
   public Matrix4d()
   {
+    m00 = m11 = m22 = m33 = 1;
   }
 
   /**
