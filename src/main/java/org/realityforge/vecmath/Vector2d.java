@@ -154,7 +154,7 @@ public final class Vector2d
    * @return this
    */
   @Nonnull
-  public Vector2d sub( final double x, final double y, final double z )
+  public Vector2d sub( final double x, final double y )
   {
     this.x -= x;
     this.y -= y;

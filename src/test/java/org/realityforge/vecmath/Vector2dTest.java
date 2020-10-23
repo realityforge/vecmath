@@ -122,7 +122,7 @@ public final class Vector2dTest
     assertSame( value.sub( new Vector2d( 4, 5 ) ), value );
     assertVecEquals( value, -3, -3 );
 
-    assertSame( value.sub( 5, 3, 1 ), value );
+    assertSame( value.sub( 5, 3 ), value );
     assertVecEquals( value, -8, -6 );
 
     assertSame( value.sub( new Vector2d( 1, 2 ), new Vector2d( 1, 2 ) ), value );

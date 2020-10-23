@@ -7,6 +7,7 @@
   will not be optimized out if it is used, regardless of the compile time settings.
 * Create a minimal `Matrix4d` matrix.
 * Add a `toArray()` method to the `Vector*` classes to support extracting the vector components as an array of values.
+* Remove the unused `z` parameter from the `Vector2d.sub(...)` method.
 
 ### [v0.07](https://github.com/realityforge/vecmath/tree/v0.07) (2020-10-18)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.06...v0.07)
