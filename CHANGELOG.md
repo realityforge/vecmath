@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+* Update javadocs in `Vector*` classes to indicate that the method may be optimized depending on the values of some compile-time settings.
+
 ### [v0.07](https://github.com/realityforge/vecmath/tree/v0.07) (2020-10-18)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.06...v0.07)
 

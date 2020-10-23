@@ -304,6 +304,8 @@ public final class Vector2d
 
   /**
    * Returns true if the specified object is the same type and has components with the same values.
+   * This method only produces a useful representation if {@link Vecmath#isObjectEqualsImplemented()}
+   * returns <code>true</code>.
    *
    * @param o the object.
    * @return true if the specified object is the same type and has components with the same values, otherwise false.
