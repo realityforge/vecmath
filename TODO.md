@@ -6,6 +6,4 @@ complete as there is too much un-said.
 
 * Start to introduce Clifford Algebra operations.
 
-* Add Matrix4 element.
-
 * Add a `ProjectUtil` that supports creating or modifying a matrix fro various project schemes.

@@ -5,6 +5,7 @@
 * Update javadocs in `Vector*` classes to indicate that the `toString()` method may be optimized out depending on the values of some compile-time settings.
 * Introduce a method named `asString()` to the `Vector*` classes to return a string representation of the vectors that
   will not be optimized out if it is used, regardless of the compile time settings.
+* Create a minimal `Matrix4d` matrix.
 
 ### [v0.07](https://github.com/realityforge/vecmath/tree/v0.07) (2020-10-18)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.06...v0.07)
