@@ -196,6 +196,22 @@ public final class Matrix4d
   }
 
   /**
+   * Set the matrix to the identity matrix.
+   *
+   * @return this
+   */
+  @Nonnull
+  public Matrix4d identity()
+  {
+    return set(
+      1, 0, 0, 0,
+      0, 1, 0, 0,
+      0, 0, 1, 0,
+      0, 0, 0, 1
+    );
+  }
+
+  /**
    * Returns true if the other matrix has components with the same values.
    *
    * @param other the other matrix.
