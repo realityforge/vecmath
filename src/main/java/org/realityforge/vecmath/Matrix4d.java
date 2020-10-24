@@ -212,6 +212,33 @@ public final class Matrix4d
   }
 
   /**
+   * Set the matrix to the translation matrix.
+   * The translation matrix is:
+   *
+   * <pre>
+   * 1 0 0 x
+   * 0 1 0 y
+   * 0 0 1 z
+   * 0 0 0 1
+   * </pre>
+   *
+   * @param x the translation in x.
+   * @param y the translation in y.
+   * @param z the translation in z.
+   * @return this
+   */
+  @Nonnull
+  public Matrix4d setTranslation( final double x, final double y, final double z )
+  {
+    return set(
+      1, 0, 0, x,
+      0, 1, 0, y,
+      0, 0, 1, z,
+      0, 0, 0, 1
+    );
+  }
+
+  /**
    * Fill the specified target with the matrix components starting at the specified offset.
    * The components are emitted in row-major form.
    *
