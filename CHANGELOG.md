@@ -9,6 +9,7 @@
 * Add a `toArray()` method to the `Vector*` classes to support extracting the vector components as an array of values.
 * Remove the unused `z` parameter from the `Vector2d.sub(...)` method.
 * Add a `lengthSquared()` method to the `Vector*` classes to support retrieving the suared magnitude of the vector. This allows the caller to minimize the number of invocations to sqrt if multiple length values are added or subtracted.
+* Create a 4-dimensional, double-precision, floating-point vector class named `Vector4d`.
 
 ### [v0.07](https://github.com/realityforge/vecmath/tree/v0.07) (2020-10-18)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.06...v0.07)

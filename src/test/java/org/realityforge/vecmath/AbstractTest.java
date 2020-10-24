@@ -62,6 +62,27 @@ abstract class AbstractTest
                   "Expected " + actual + " to contain an z component of " + z + ". Expected: " + expected );
   }
 
+  void assertVecEquals( @Nonnull final Vector4d actual, final double x, final double y, final double z, final double w )
+  {
+    final Vector4d expected = new Vector4d( x, y, z, w );
+    assertEquals( actual.x,
+                  x,
+                  0.00001,
+                  "Expected " + actual + " to contain an x component of " + x + ". Expected: " + expected );
+    assertEquals( actual.y,
+                  y,
+                  0.00001,
+                  "Expected " + actual + " to contain an y component of " + y + ". Expected: " + expected );
+    assertEquals( actual.z,
+                  z,
+                  0.00001,
+                  "Expected " + actual + " to contain an z component of " + z + ". Expected: " + expected );
+    assertEquals( actual.w,
+                  w,
+                  0.00001,
+                  "Expected " + actual + " to contain an w component of " + w + ". Expected: " + expected );
+  }
+
   void assertVecEquals( @Nonnull final Vector3f actual, final float x, final float y, final float z )
   {
     final Vector3f expected = new Vector3f( x, y, z );
