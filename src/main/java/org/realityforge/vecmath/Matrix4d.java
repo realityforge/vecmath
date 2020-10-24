@@ -213,7 +213,7 @@ public final class Matrix4d
 
   /**
    * Set the matrix to the translation matrix.
-   * The translation matrix is:
+   * The matrix is:
    *
    * <pre>
    * 1 0 0 x
@@ -240,7 +240,7 @@ public final class Matrix4d
 
   /**
    * Apply a translation to this matrix by the specified units.
-   * This is equivalent to multiplying this matrix by the translation matrix:
+   * This is equivalent to multiplying this matrix by the matrix:
    *
    * <pre>
    * 1 0 0 x
@@ -279,7 +279,7 @@ public final class Matrix4d
 
   /**
    * Set the matrix to the scaling matrix.
-   * The scale matrix is:
+   * The matrix is:
    *
    * <pre>
    * n 0 0 0
@@ -299,7 +299,7 @@ public final class Matrix4d
 
   /**
    * Set the matrix to the scaling matrix.
-   * The scaling matrix is:
+   * The matrix is:
    *
    * <pre>
    * x 0 0 0
@@ -326,7 +326,7 @@ public final class Matrix4d
 
   /**
    * Apply a scaling transformation to this matrix by the specified units.
-   * This is equivalent to multiplying this matrix by the scaling matrix:
+   * This is equivalent to multiplying this matrix by the matrix:
    *
    * <pre>
    * x 0 0 0
@@ -360,7 +360,7 @@ public final class Matrix4d
 
   /**
    * Apply a scaling transformation to this matrix scaling in all dimensions equally.
-   * This is equivalent to multiplying this matrix by the scaling matrix:
+   * This is equivalent to multiplying this matrix by the matrix:
    *
    * <pre>
    * n 0 0 0
