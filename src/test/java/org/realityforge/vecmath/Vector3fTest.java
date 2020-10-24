@@ -302,7 +302,7 @@ public final class Vector3fTest
     assertAngle( /* z axis */ 0F, 0F, -1F, /* z axis */  0F, 0F, -71F, 0F );
 
     // higglety pigglety vectors
-    assertAngle( /* vector 1 */ 1F, 2F, 3F, /* vector */  4F, 5F, 6F, 0.2257264F );
+    assertAngle( /* vector 1 */ 1F, 2F, 3F, /* vector */  4F, 5F, 6F, 0.22572613F );
   }
 
   private void assertAngle( final float x1, final float y1, final float z1,

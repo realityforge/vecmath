@@ -295,7 +295,7 @@ public final class Vector3f
    */
   public float angle( @Nonnull final Vector3f other )
   {
-    return (float) Math.acos( dot( other ) / ( length() * other.length() ) );
+    return (float) Math.acos( dot( other ) / Math.sqrt( lengthSquared() * other.lengthSquared() ) );
   }
 
   /**

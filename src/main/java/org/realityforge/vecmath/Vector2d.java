@@ -258,7 +258,7 @@ public final class Vector2d
     double dot = dot( other );
     double det = x * other.y - y * other.x;
     return Math.atan2( det, dot );
-    //return Math.acos( dot( other ) / ( length() * other.length() ) );
+    //return Math.acos( dot( other ) / Math.acos( dot( other ) / Math.sqrt( lengthSquared() * other.lengthSquared() ) );
   }
 
   /**

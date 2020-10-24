@@ -295,7 +295,7 @@ public final class Vector3d
    */
   public double angle( @Nonnull final Vector3d other )
   {
-    return Math.acos( dot( other ) / ( length() * other.length() ) );
+    return Math.acos( dot( other ) / Math.sqrt( lengthSquared() * other.lengthSquared() ) );
   }
 
   /**
