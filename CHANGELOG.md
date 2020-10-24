@@ -1,6 +1,7 @@
 # Change Log
 
-### Unreleased
+### [v0.08](https://github.com/realityforge/vecmath/tree/v0.08) (2020-10-24)
+[Full Changelog](https://github.com/realityforge/vecmath/compare/v0.07...v0.08)
 
 * Update javadocs in `Vector*` classes to indicate that the `toString()` method may be optimized out depending on the values of some compile-time settings.
 * Introduce a method named `asString()` to the `Vector*` classes to return a string representation of the vectors that
