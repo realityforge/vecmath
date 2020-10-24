@@ -278,23 +278,23 @@ public final class Matrix4d
   }
 
   /**
-   * Set the matrix to the scaling matrix.
+   * Set the matrix to a uniform scaling matrix.
    * The matrix is:
    *
    * <pre>
-   * n 0 0 0
-   * 0 n 0 0
-   * 0 0 n 0
+   * k 0 0 0
+   * 0 k 0 0
+   * 0 0 k 0
    * 0 0 0 1
    * </pre>
    *
-   * @param n the scaling in x, y and z dimensions.
+   * @param k the uniform scaling applied to all dimensions.
    * @return this
    */
   @Nonnull
-  public Matrix4d setScale( final double n )
+  public Matrix4d setScale( final double k )
   {
-    return setScale( n, n, n );
+    return setScale( k, k, k );
   }
 
   /**
@@ -359,23 +359,23 @@ public final class Matrix4d
   }
 
   /**
-   * Apply a scaling transformation to this matrix scaling in all dimensions equally.
+   * Apply a uniform scaling transformation to this matrix.
    * This is equivalent to multiplying this matrix by the matrix:
    *
    * <pre>
-   * n 0 0 0
-   * 0 n 0 0
-   * 0 0 n 0
+   * k 0 0 0
+   * 0 k 0 0
+   * 0 0 k 0
    * 0 0 0 1
    * </pre>
    *
-   * @param n the scaling in x, y and z dimensions.
+   * @param k the uniform scaling applied to all dimensions.
    * @return this
    */
   @Nonnull
-  public Matrix4d scale( final double n )
+  public Matrix4d scale( final double k )
   {
-    return scale( n, n, n );
+    return scale( k, k, k );
   }
 
   /**
