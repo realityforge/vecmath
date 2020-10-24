@@ -142,8 +142,9 @@ public final class Matrix4dTest
                      0, 0, 1, 3,
                      0, 0, 0, 1 );
 
-    value.setTranslation( 1, 2, 3 );
+    final Matrix4d other = value.setTranslation( 1, 2, 3 );
 
+    assertSame( value, other );
     assertEquals( value.asString(),
                   "(1.0, 0.0, 0.0, 1.0 | 0.0, 1.0, 0.0, 2.0 | 0.0, 0.0, 1.0, 3.0 | 0.0, 0.0, 0.0, 1.0)" );
     assertMatEquals( value,
