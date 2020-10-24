@@ -150,6 +150,15 @@ public final class Vector3dTest
   }
 
   @Test
+  public void lengthSquared()
+  {
+    assertEquals( new Vector3d( 1, 0, 0 ).lengthSquared(), 1, 0.00001 );
+    assertEquals( new Vector3d( 0, 1, 0 ).lengthSquared(), 1, 0.00001 );
+    assertEquals( new Vector3d( 0, 0, 1 ).lengthSquared(), 1, 0.00001 );
+    assertEquals( new Vector3d( 1, 2, 3 ).lengthSquared(), 14.0, 0.00001 );
+  }
+
+  @Test
   public void length()
   {
     assertEquals( new Vector3d( 1, 0, 0 ).length(), 1, 0.00001 );

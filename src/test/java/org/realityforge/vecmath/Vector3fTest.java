@@ -150,6 +150,15 @@ public final class Vector3fTest
   }
 
   @Test
+  public void lengthSquared()
+  {
+    assertEquals( new Vector3f( 1F, 0F, 0F ).lengthSquared(), 1F, 0.00001 );
+    assertEquals( new Vector3f( 0F, 1F, 0F ).lengthSquared(), 1F, 0.00001 );
+    assertEquals( new Vector3f( 0F, 0F, 1F ).lengthSquared(), 1F, 0.00001 );
+    assertEquals( new Vector3f( 1F, 2F, 3F ).lengthSquared(), 14.0F, 0.00001 );
+  }
+
+  @Test
   public void length()
   {
     assertEquals( new Vector3f( 1F, 0F, 0F ).length(), 1F, 0.00001 );

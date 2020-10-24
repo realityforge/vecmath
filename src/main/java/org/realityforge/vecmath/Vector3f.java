@@ -224,13 +224,24 @@ public final class Vector3f
   }
 
   /**
+   * Returns the length or magnitude of this vector squared.
+   * This is used as an optimization to avoid multiple sqrt when a single sqrt will do.
+   *
+   * @return the length or magnitude of this vector squared.
+   */
+  public double lengthSquared()
+  {
+    return x * x + y * y + z * z;
+  }
+
+  /**
    * Returns the length or magnitude of this vector.
    *
    * @return the length or magnitude of this vector
    */
   public float length()
   {
-    return (float) Math.sqrt( x * x + y * y + z * z );
+    return (float) Math.sqrt( lengthSquared() );
   }
 
   /**

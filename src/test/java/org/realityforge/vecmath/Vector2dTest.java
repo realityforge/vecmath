@@ -150,6 +150,14 @@ public final class Vector2dTest
   }
 
   @Test
+  public void lengthSquared()
+  {
+    assertEquals( new Vector2d( 1, 0 ).lengthSquared(), 1, 0.00001 );
+    assertEquals( new Vector2d( 0, 1 ).lengthSquared(), 1, 0.00001 );
+    assertEquals( new Vector2d( 1, 2 ).lengthSquared(), 5.0, 0.00001 );
+  }
+
+  @Test
   public void length()
   {
     assertEquals( new Vector2d( 1, 0 ).length(), 1, 0.00001 );
