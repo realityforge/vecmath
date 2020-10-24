@@ -177,4 +177,76 @@ public final class Matrix4dTest
                      0, 0, 1, 6,
                      0, 0, 0, 1 );
   }
+
+  @Test
+  public void setScale()
+  {
+    final Matrix4d value = new Matrix4d().setScale( 5, 2, 3 );
+    assertEquals( value.asString(),
+                  "(5.0, 0.0, 0.0, 0.0 | 0.0, 2.0, 0.0, 0.0 | 0.0, 0.0, 3.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+    assertMatEquals( value,
+                     5, 0, 0, 0,
+                     0, 2, 0, 0,
+                     0, 0, 3, 0,
+                     0, 0, 0, 1 );
+
+    // Verify that setScale replaces matrix
+    final Matrix4d other = value.setScale( 5, 2, 3 );
+
+    assertSame( value, other );
+    assertEquals( value.asString(),
+                  "(5.0, 0.0, 0.0, 0.0 | 0.0, 2.0, 0.0, 0.0 | 0.0, 0.0, 3.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+    assertMatEquals( value,
+                     5, 0, 0, 0,
+                     0, 2, 0, 0,
+                     0, 0, 3, 0,
+                     0, 0, 0, 1 );
+
+    final Matrix4d other2 = value.setScale( 7 );
+
+    assertSame( value, other2 );
+    assertEquals( value.asString(),
+                  "(7.0, 0.0, 0.0, 0.0 | 0.0, 7.0, 0.0, 0.0 | 0.0, 0.0, 7.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+    assertMatEquals( value,
+                     7, 0, 0, 0,
+                     0, 7, 0, 0,
+                     0, 0, 7, 0,
+                     0, 0, 0, 1 );
+  }
+
+  @Test
+  public void scale()
+  {
+    final Matrix4d value = new Matrix4d().scale( 5, 2, 3 );
+    assertEquals( value.asString(),
+                  "(5.0, 0.0, 0.0, 0.0 | 0.0, 2.0, 0.0, 0.0 | 0.0, 0.0, 3.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+    assertMatEquals( value,
+                     5, 0, 0, 0,
+                     0, 2, 0, 0,
+                     0, 0, 3, 0,
+                     0, 0, 0, 1 );
+
+    // Verify that scale applies operation to matrix
+    final Matrix4d other = value.scale( 5, 2, 3 );
+
+    assertSame( value, other );
+    assertEquals( value.asString(),
+                  "(25.0, 0.0, 0.0, 0.0 | 0.0, 4.0, 0.0, 0.0 | 0.0, 0.0, 9.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+    assertMatEquals( value,
+                     25, 0, 0, 0,
+                     0, 4, 0, 0,
+                     0, 0, 9, 0,
+                     0, 0, 0, 1 );
+
+    final Matrix4d other2 = value.scale( 2 );
+
+    assertSame( value, other2 );
+    assertEquals( value.asString(),
+                  "(50.0, 0.0, 0.0, 0.0 | 0.0, 8.0, 0.0, 0.0 | 0.0, 0.0, 18.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+    assertMatEquals( value,
+                     50, 0, 0, 0,
+                     0, 8, 0, 0,
+                     0, 0, 18, 0,
+                     0, 0, 0, 1 );
+  }
 }

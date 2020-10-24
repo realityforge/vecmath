@@ -6,6 +6,8 @@
 * Add `Matrix4d.translate(...)` methods to support applying a translation to a matrix.
 * Change the way that the `Matrix4d.toArray(...)` layout the matrix in the array to align with OpenGL and Direct3d conventions.
 * Rename `Matrix4d.identity()` method to `Matrix4d.setIdentity()` to follow the conventions that methods that set the values of the matrix rather than applying an operation are prefixed with set.
+* Add `Matrix4d.setScale(...)` methods to change matrix into a scaling matrix.
+* Add `Matrix4d.scale(...)` methods to support applying a scale operation to a matrix.
 
 ### [v0.08](https://github.com/realityforge/vecmath/tree/v0.08) (2020-10-24)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.07...v0.08)

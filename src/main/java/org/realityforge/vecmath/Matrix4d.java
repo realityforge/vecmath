@@ -278,6 +278,107 @@ public final class Matrix4d
   }
 
   /**
+   * Set the matrix to the scaling matrix.
+   * The scale matrix is:
+   *
+   * <pre>
+   * n 0 0 0
+   * 0 n 0 0
+   * 0 0 n 0
+   * 0 0 0 1
+   * </pre>
+   *
+   * @param n the scaling in x, y and z dimensions.
+   * @return this
+   */
+  @Nonnull
+  public Matrix4d setScale( final double n )
+  {
+    return setScale( n, n, n );
+  }
+
+  /**
+   * Set the matrix to the scaling matrix.
+   * The scaling matrix is:
+   *
+   * <pre>
+   * x 0 0 0
+   * 0 y 0 0
+   * 0 0 z 0
+   * 0 0 0 1
+   * </pre>
+   *
+   * @param x the scaling in x.
+   * @param y the scaling in y.
+   * @param z the scaling in z.
+   * @return this
+   */
+  @Nonnull
+  public Matrix4d setScale( final double x, final double y, final double z )
+  {
+    return set(
+      x, 0, 0, 0,
+      0, y, 0, 0,
+      0, 0, z, 0,
+      0, 0, 0, 1
+    );
+  }
+
+  /**
+   * Apply a scaling transformation to this matrix by the specified units.
+   * This is equivalent to multiplying this matrix by the scaling matrix:
+   *
+   * <pre>
+   * x 0 0 0
+   * 0 y 0 0
+   * 0 0 z 0
+   * 0 0 0 1
+   * </pre>
+   *
+   * @param x the scaling in x.
+   * @param y the scaling in y.
+   * @param z the scaling in z.
+   * @return this
+   */
+  @Nonnull
+  public Matrix4d scale( final double x, final double y, final double z )
+  {
+    m00 *= x;
+    m10 *= x;
+    m20 *= x;
+    m30 *= x;
+    m01 *= y;
+    m11 *= y;
+    m21 *= y;
+    m31 *= y;
+    m02 *= z;
+    m12 *= z;
+    m22 *= z;
+    m32 *= z;
+    return this;
+  }
+
+  /**
+   * Apply a scaling transformation to this matrix scaling in all dimensions equally.
+   * This is equivalent to multiplying this matrix by the scaling matrix:
+   *
+   * <pre>
+   * n 0 0 0
+   * 0 n 0 0
+   * 0 0 n 0
+   * 0 0 0 1
+   * </pre>
+   *
+   * @param n the scaling in x, y and z dimensions.
+   * @return this
+   */
+  @Nonnull
+  public Matrix4d scale( final double n )
+  {
+    return scale( n, n, n );
+  }
+
+  /**
    * Fill the specified target with the matrix components starting at the specified offset.
    * The components are emitted in row-major form.
    *
