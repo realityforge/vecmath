@@ -201,7 +201,7 @@ public final class Matrix4d
    * @return this
    */
   @Nonnull
-  public Matrix4d identity()
+  public Matrix4d setIdentity()
   {
     return set(
       1, 0, 0, 0,

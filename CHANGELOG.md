@@ -5,6 +5,7 @@
 * Add `Matrix4d.setTranslation(x,y,z)` method to change matrix into translation matrix.
 * Add `Matrix4d.translate(...)` methods to support applying a translation to a matrix.
 * Change the way that the `Matrix4d.toArray(...)` layout the matrix in the array to align with OpenGL and Direct3d conventions.
+* Rename `Matrix4d.identity()` method to `Matrix4d.setIdentity()` to follow the conventions that methods that set the values of the matrix rather than applying an operation are prefixed with set.
 
 ### [v0.08](https://github.com/realityforge/vecmath/tree/v0.08) (2020-10-24)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.07...v0.08)
