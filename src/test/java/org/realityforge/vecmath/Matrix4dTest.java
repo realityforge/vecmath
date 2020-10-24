@@ -161,11 +161,12 @@ public final class Matrix4dTest
                      0, 0, 1, 3,
                      0, 0, 0, 1 );
 
-    value.translate( new Vector3d( 1, 2, 3 ) );
+    final Matrix4d other = value.translate( new Vector3d( 1, 2, 3 ) );
 
-    assertEquals( value.asString(),
+    assertSame( value, other );
+    assertEquals( other.asString(),
                   "(1.0, 0.0, 0.0, 2.0 | 0.0, 1.0, 0.0, 4.0 | 0.0, 0.0, 1.0, 6.0 | 0.0, 0.0, 0.0, 1.0)" );
-    assertMatEquals( value,
+    assertMatEquals( other,
                      1, 0, 0, 2,
                      0, 1, 0, 4,
                      0, 0, 1, 6,
