@@ -3,6 +3,7 @@
 ### Unreleased
 
 * Add `Matrix4d.setTranslation(x,y,z)` method to change matrix into translation matrix.
+* Add `Matrix4d.translate(...)` methods to support applying a translation to a matrix.
 
 ### [v0.08](https://github.com/realityforge/vecmath/tree/v0.08) (2020-10-24)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.07...v0.08)

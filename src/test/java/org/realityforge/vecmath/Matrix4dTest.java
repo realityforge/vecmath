@@ -148,4 +148,27 @@ public final class Matrix4dTest
                      0, 0, 1, 3,
                      0, 0, 0, 1 );
   }
+
+  @Test
+  public void translate()
+  {
+    final Matrix4d value = new Matrix4d().translate( 1, 2, 3 );
+    assertEquals( value.asString(),
+                  "(1.0, 0.0, 0.0, 1.0 | 0.0, 1.0, 0.0, 2.0 | 0.0, 0.0, 1.0, 3.0 | 0.0, 0.0, 0.0, 1.0)" );
+    assertMatEquals( value,
+                     1, 0, 0, 1,
+                     0, 1, 0, 2,
+                     0, 0, 1, 3,
+                     0, 0, 0, 1 );
+
+    value.translate( new Vector3d( 1, 2, 3 ) );
+
+    assertEquals( value.asString(),
+                  "(1.0, 0.0, 0.0, 2.0 | 0.0, 1.0, 0.0, 4.0 | 0.0, 0.0, 1.0, 6.0 | 0.0, 0.0, 0.0, 1.0)" );
+    assertMatEquals( value,
+                     1, 0, 0, 2,
+                     0, 1, 0, 4,
+                     0, 0, 1, 6,
+                     0, 0, 0, 1 );
+  }
 }

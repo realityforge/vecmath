@@ -239,6 +239,45 @@ public final class Matrix4d
   }
 
   /**
+   * Apply a translation to this matrix by the specified units.
+   * This is equivalent to multiplying this matrix by the translation matrix:
+   *
+   * <pre>
+   * 1 0 0 x
+   * 0 1 0 y
+   * 0 0 1 z
+   * 0 0 0 1
+   * </pre>
+   *
+   * @param x the translation in x.
+   * @param y the translation in y.
+   * @param z the translation in z.
+   * @return this
+   */
+  @Nonnull
+  public Matrix4d translate( final double x, final double y, final double z )
+  {
+    m03 = m00 * x + m01 * y + m02 * z + m03;
+    m13 = m10 * x + m11 * y + m12 * z + m13;
+    m23 = m20 * x + m21 * y + m22 * z + m23;
+    m33 = m30 * x + m31 * y + m32 * z + m33;
+    return this;
+  }
+
+  /**
+   * Apply a translation to this matrix by the specified vector.
+   * See {@link #translate(double, double, double)} for a more detail explanation.
+   *
+   * @param vector the translation vector.
+   * @return this
+   */
+  @Nonnull
+  public Matrix4d translate( @Nonnull final Vector3d vector )
+  {
+    return translate( vector.x, vector.y, vector.z );
+  }
+
+  /**
    * Fill the specified target with the matrix components starting at the specified offset.
    * The components are emitted in row-major form.
    *
