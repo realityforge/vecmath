@@ -237,7 +237,7 @@ public final class Vector3f
   /**
    * Returns the length or magnitude of this vector.
    *
-   * @return the length or magnitude of this vector
+   * @return the length or magnitude of this vector.
    */
   public float length()
   {

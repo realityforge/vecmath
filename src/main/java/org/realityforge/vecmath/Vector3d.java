@@ -237,7 +237,7 @@ public final class Vector3d
   /**
    * Returns the length or magnitude of this vector.
    *
-   * @return the length or magnitude of this vector
+   * @return the length or magnitude of this vector.
    */
   public double length()
   {
