@@ -7,3 +7,5 @@ complete as there is too much un-said.
 * Start to introduce Clifford Algebra operations.
 
 * Add a `ProjectUtil` that supports creating or modifying a matrix fro various project schemes.
+
+* Rename `Matrix4.identity()` as `Matrix4.setIdentity()`
