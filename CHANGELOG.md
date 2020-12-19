@@ -2,6 +2,7 @@
 
 ### Unreleased
 
+* Upgrade the `org.realityforge.org.jetbrains.annotations` artifact to version `1.7.0`.
 * Add `Matrix4d.setTranslation(x,y,z)` method to change matrix into translation matrix.
 * Add `Matrix4d.translate(...)` methods to support applying a translation to a matrix.
 * Change the way that the `Matrix4d.toArray(...)` layout the matrix in the array to align with OpenGL and Direct3d conventions.
