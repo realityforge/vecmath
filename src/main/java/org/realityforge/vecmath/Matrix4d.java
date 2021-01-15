@@ -7,6 +7,14 @@ import javax.annotation.Nonnull;
 /**
  * A 4x4-dimensional, double-precision, floating-point matrix.
  *
+ * <p>If the matrix was laid out in row-major form it looks like:</p>
+ * <pre>
+ * m00  m01  m02  m03
+ * m10  m11  m12  m13
+ * m20  m21  m22  m23
+ * m30  m31  m32  m33
+ * </pre>
+ *
  * <p>If the matrix was laid out in column-major form it looks like:</p>
  * <pre>
  * m00  m10  m20  m30
