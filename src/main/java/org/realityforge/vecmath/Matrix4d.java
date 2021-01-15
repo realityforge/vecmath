@@ -265,10 +265,10 @@ public final class Matrix4d
   @Nonnull
   public Matrix4d translate( final double x, final double y, final double z )
   {
-    m03 = m00 * x + m01 * y + m02 * z + m03;
-    m13 = m10 * x + m11 * y + m12 * z + m13;
-    m23 = m20 * x + m21 * y + m22 * z + m23;
-    m33 = m30 * x + m31 * y + m32 * z + m33;
+    m30 = m00 * x + m10 * y + m20 * z + m30;
+    m31 = m01 * x + m11 * y + m21 * z + m31;
+    m32 = m02 * x + m12 * y + m22 * z + m32;
+    m33 = m03 * x + m13 * y + m23 * z + m33;
     return this;
   }
 
