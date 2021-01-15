@@ -250,6 +250,7 @@ public final class Matrix4dTest
                   "0.0 1.0 0.0 2.0\n" +
                   "0.0 0.0 1.0 3.0\n" +
                   "0.0 0.0 0.0 1.0\n" );
+
     assertMatEquals( value,
                      1, 0, 0, 1,
                      0, 1, 0, 2,
