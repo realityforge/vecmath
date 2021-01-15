@@ -257,6 +257,9 @@ public final class Matrix4dTest
                      0, 0, 1, 3,
                      0, 0, 0, 1 );
 
+    // Ensure setIdentity().translate(x,y,z) is equivalent to setTranslation(x,y,z)
+    assertEquals( new Matrix4d().setTranslation( 1, 2, 3 ).asString(), value.asString() );
+
     final Matrix4d other = value.translate( new Vector3d( 1, 2, 3 ) );
 
     assertSame( value, other );
