@@ -17,7 +17,12 @@ public final class Matrix4dTest
   @Test
   public void asString()
   {
-    assertEquals( new Matrix4d().asString(),
+    final Matrix4d matrix =
+      new Matrix4d( 1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12,
+                    13, 14, 15, 16 );
+    assertEquals( matrix.asString(),
                   "(1.0, 0.0, 0.0, 0.0 | 0.0, 1.0, 0.0, 0.0 | 0.0, 0.0, 1.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
     VecmathTestUtil.disableDebugToString();
     assertEquals( new Matrix4d().asString(),
@@ -91,14 +96,38 @@ public final class Matrix4dTest
   @Test
   public void set()
   {
-    final Matrix4d value = new Matrix4d( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 );
-    assertMatEquals( value, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 );
+    final Matrix4d value =
+      new Matrix4d( 1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12,
+                    13, 14, 15, 16 );
+    assertMatEquals( value,
+                     1, 2, 3, 4,
+                     5, 6, 7, 8,
+                     9, 10, 11, 12,
+                     13, 14, 15, 16 );
 
-    assertSame( value.set( new Matrix4d() ), value );
-    assertMatEquals( value, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 );
+    assertSame( value.set( new Matrix4d( 16, 15, 14, 13,
+                                         12, 11, 10, 9,
+                                         8, 7, 6, 5,
+                                         4, 3, 2, 1 ) ),
+                value );
+    assertMatEquals( value,
+                     16, 15, 14, 13,
+                     12, 11, 10, 9,
+                     8, 7, 6, 5,
+                     4, 3, 2, 1 );
 
-    assertSame( value.set( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ), value );
-    assertMatEquals( value, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 );
+    assertSame( value.set( 1, 2, 3, 4,
+                           5, 6, 7, 8,
+                           9, 10, 11, 12,
+                           13, 14, 15, 16 ),
+                value );
+    assertMatEquals( value,
+                     1, 2, 3, 4,
+                     5, 6, 7, 8,
+                     9, 10, 11, 12,
+                     13, 14, 15, 16 );
   }
 
   @Test
@@ -120,7 +149,11 @@ public final class Matrix4dTest
   @Test
   public void toArray()
   {
-    final Matrix4d value = new Matrix4d( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 );
+    final Matrix4d value =
+      new Matrix4d( 1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12,
+                    13, 14, 15, 16 );
 
     assertArray( value.toArray(),
                  "[1.0, 5.0, 9.0, 13.0, 2.0, 6.0, 10.0, 14.0, 3.0, 7.0, 11.0, 15.0, 4.0, 8.0, 12.0, 16.0]" );
