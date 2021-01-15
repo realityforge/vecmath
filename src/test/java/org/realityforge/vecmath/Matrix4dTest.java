@@ -367,4 +367,35 @@ public final class Matrix4dTest
                      0, 0, 18, 0,
                      0, 0, 0, 1 );
   }
+
+  @Test
+  public void setPerspective()
+  {
+    final Matrix4d target = new Matrix4d();
+    final Matrix4d value = target.setPerspective( Math.PI / 2, 1.4, -1, 1 );
+    assertEquals( value.asString(),
+                  "0.7142857142857144 0.0 0.0 0.0\n" +
+                  "0.0 1.0000000000000002 0.0 0.0\n" +
+                  "0.0 0.0 -0.0 1.0\n" +
+                  "0.0 0.0 -1.0 0.0\n" );
+    assertMatEquals( value,
+                     0.7142857142857144, 0, 0, 0,
+                     0, 1.0000000000000002, 0, 0,
+                     0, 0, 0, 1,
+                     0, 0, -1, 0 );
+    assertSame( value, target );
+
+    final Matrix4d value2 = target.setPerspective( Math.PI / 2, 1.4, 1, 10 );
+    assertEquals( value2.asString(),
+                  "0.7142857142857144 0.0 0.0 0.0\n" +
+                  "0.0 1.0000000000000002 0.0 0.0\n" +
+                  "0.0 0.0 -1.2222222222222223 -2.2222222222222223\n" +
+                  "0.0 0.0 -1.0 0.0\n" );
+    assertMatEquals( value2,
+                     0.7142857142857144, 0, 0, 0,
+                     0, 1.0000000000000002, 0, 0,
+                     0, 0, -1.2222222222222223, -2.2222222222222223,
+                     0, 0, -1, 0 );
+    assertSame( value2, target );
+  }
 }

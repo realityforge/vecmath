@@ -386,6 +386,31 @@ public final class Matrix4d
     return scale( k, k, k );
   }
 
+
+  /**
+   * Set this matrix to be a symmetric perspective projection frustum transformation for a right-handed coordinate system.
+   *
+   * @param fovY   the vertical field of view in radians (must be greater than zero and less than {@link Math#PI PI})
+   * @param aspect the aspect ratio (i.e. width / height; must be greater than zero)
+   * @param zNear  the near clipping plane distance
+   * @param zFar   the far clipping plane distance.
+   * @return this
+   * @see <a href="https://github.com/JOML-CI/JOML/blob/main/src/org/joml/Matrix4d.java">Derived from equivalent in org.joml.Matrix4d</a>
+   */
+  @Nonnull
+  public Matrix4d setPerspective( final double fovY, final double aspect, final double zNear, final double zFar )
+  {
+    assert fovY > 0 && fovY < Math.PI;
+    assert aspect > 0;
+    assert !Double.isInfinite( zNear );
+    assert !Double.isInfinite( zFar );
+
+    final double h = Math.tan( fovY * 0.5 );
+    return set( 1 / ( h * aspect ), 0, 0, 0,
+                0, 1.0 / h, 0, 0,
+                0, 0, ( zFar + zNear ) / ( zNear - zFar ), ( zFar + zFar ) * zNear / ( zNear - zFar ),
+                0, 0, -1, 0 );
+  }
   /**
    * Fill the specified target with the matrix components starting at the specified offset.
    * The components are emitted in column-major form.
