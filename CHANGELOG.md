@@ -8,6 +8,7 @@
 * Rename `Matrix4d.identity()` method to `Matrix4d.setIdentity()` to follow the conventions that methods that set the values of the matrix rather than applying an operation are prefixed with set.
 * Add `Matrix4d.setScale(...)` methods to change matrix into a scaling matrix.
 * Add `Matrix4d.scale(...)` methods to support applying a scale operation to a matrix.
+* Change the `Matrix4d.asString()` method to layout the matrix components in multi-line column major format rather than a single line row-major format. Introduce the methods `Matrix4d.asColumnMajorString()` and `Matrix4d.asRowMajorString()` so that the desired string form can be explicitly requested.
 
 ### [v0.08](https://github.com/realityforge/vecmath/tree/v0.08) (2020-10-24)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.07...v0.08)

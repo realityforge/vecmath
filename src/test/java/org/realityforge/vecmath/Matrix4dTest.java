@@ -10,7 +10,10 @@ public final class Matrix4dTest
   public void testToString()
   {
     assertEquals( new Matrix4d().toString(),
-                  "(1.0, 0.0, 0.0, 0.0 | 0.0, 1.0, 0.0, 0.0 | 0.0, 0.0, 1.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "1.0 0.0 0.0 0.0\n" +
+                  "0.0 1.0 0.0 0.0\n" +
+                  "0.0 0.0 1.0 0.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertDefaultToStringWhenDebugToStringDisabled( new Matrix4d() );
   }
 
@@ -23,10 +26,47 @@ public final class Matrix4dTest
                     9, 10, 11, 12,
                     13, 14, 15, 16 );
     assertEquals( matrix.asString(),
-                  "(1.0, 0.0, 0.0, 0.0 | 0.0, 1.0, 0.0, 0.0 | 0.0, 0.0, 1.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "1.0 2.0 3.0 4.0\n" +
+                  "5.0 6.0 7.0 8.0\n" +
+                  "9.0 10.0 11.0 12.0\n" +
+                  "13.0 14.0 15.0 16.0\n" );
+    assertEquals( matrix.asString(), matrix.asColumnMajorString() );
     VecmathTestUtil.disableDebugToString();
-    assertEquals( new Matrix4d().asString(),
-                  "(1.0, 0.0, 0.0, 0.0 | 0.0, 1.0, 0.0, 0.0 | 0.0, 0.0, 1.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+    assertEquals( matrix.asString(),
+                  "1.0 2.0 3.0 4.0\n" +
+                  "5.0 6.0 7.0 8.0\n" +
+                  "9.0 10.0 11.0 12.0\n" +
+                  "13.0 14.0 15.0 16.0\n" );
+  }
+
+  @Test
+  public void asColumnMajorString()
+  {
+    final Matrix4d matrix =
+      new Matrix4d( 1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12,
+                    13, 14, 15, 16 );
+    assertEquals( matrix.asColumnMajorString(),
+                  "1.0 2.0 3.0 4.0\n" +
+                  "5.0 6.0 7.0 8.0\n" +
+                  "9.0 10.0 11.0 12.0\n" +
+                  "13.0 14.0 15.0 16.0\n" );
+  }
+
+  @Test
+  public void asRowMajorString()
+  {
+    final Matrix4d matrix =
+      new Matrix4d( 1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12,
+                    13, 14, 15, 16 );
+    assertEquals( matrix.asRowMajorString(),
+                  "1.0 5.0 9.0 13.0\n" +
+                  "2.0 6.0 10.0 14.0\n" +
+                  "3.0 7.0 11.0 15.0\n" +
+                  "4.0 8.0 12.0 16.0\n" );
   }
 
   @Test
@@ -168,7 +208,10 @@ public final class Matrix4dTest
   {
     final Matrix4d value = new Matrix4d().setTranslation( 1, 2, 3 );
     assertEquals( value.asString(),
-                  "(1.0, 0.0, 0.0, 1.0 | 0.0, 1.0, 0.0, 2.0 | 0.0, 0.0, 1.0, 3.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "1.0 0.0 0.0 1.0\n" +
+                  "0.0 1.0 0.0 2.0\n" +
+                  "0.0 0.0 1.0 3.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( value,
                      1, 0, 0, 1,
                      0, 1, 0, 2,
@@ -179,7 +222,10 @@ public final class Matrix4dTest
 
     assertSame( value, other );
     assertEquals( value.asString(),
-                  "(1.0, 0.0, 0.0, 1.0 | 0.0, 1.0, 0.0, 2.0 | 0.0, 0.0, 1.0, 3.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "1.0 0.0 0.0 1.0\n" +
+                  "0.0 1.0 0.0 2.0\n" +
+                  "0.0 0.0 1.0 3.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( value,
                      1, 0, 0, 1,
                      0, 1, 0, 2,
@@ -192,7 +238,10 @@ public final class Matrix4dTest
   {
     final Matrix4d value = new Matrix4d().translate( 1, 2, 3 );
     assertEquals( value.asString(),
-                  "(1.0, 0.0, 0.0, 1.0 | 0.0, 1.0, 0.0, 2.0 | 0.0, 0.0, 1.0, 3.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "1.0 0.0 0.0 1.0\n" +
+                  "0.0 1.0 0.0 2.0\n" +
+                  "0.0 0.0 1.0 3.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( value,
                      1, 0, 0, 1,
                      0, 1, 0, 2,
@@ -203,7 +252,10 @@ public final class Matrix4dTest
 
     assertSame( value, other );
     assertEquals( other.asString(),
-                  "(1.0, 0.0, 0.0, 2.0 | 0.0, 1.0, 0.0, 4.0 | 0.0, 0.0, 1.0, 6.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "1.0 0.0 0.0 2.0\n" +
+                  "0.0 1.0 0.0 4.0\n" +
+                  "0.0 0.0 1.0 6.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( other,
                      1, 0, 0, 2,
                      0, 1, 0, 4,
@@ -216,7 +268,10 @@ public final class Matrix4dTest
   {
     final Matrix4d value = new Matrix4d().setScale( 5, 2, 3 );
     assertEquals( value.asString(),
-                  "(5.0, 0.0, 0.0, 0.0 | 0.0, 2.0, 0.0, 0.0 | 0.0, 0.0, 3.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "5.0 0.0 0.0 0.0\n" +
+                  "0.0 2.0 0.0 0.0\n" +
+                  "0.0 0.0 3.0 0.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( value,
                      5, 0, 0, 0,
                      0, 2, 0, 0,
@@ -228,7 +283,10 @@ public final class Matrix4dTest
 
     assertSame( value, other );
     assertEquals( value.asString(),
-                  "(5.0, 0.0, 0.0, 0.0 | 0.0, 2.0, 0.0, 0.0 | 0.0, 0.0, 3.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "5.0 0.0 0.0 0.0\n" +
+                  "0.0 2.0 0.0 0.0\n" +
+                  "0.0 0.0 3.0 0.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( value,
                      5, 0, 0, 0,
                      0, 2, 0, 0,
@@ -239,7 +297,10 @@ public final class Matrix4dTest
 
     assertSame( value, other2 );
     assertEquals( value.asString(),
-                  "(7.0, 0.0, 0.0, 0.0 | 0.0, 7.0, 0.0, 0.0 | 0.0, 0.0, 7.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "7.0 0.0 0.0 0.0\n" +
+                  "0.0 7.0 0.0 0.0\n" +
+                  "0.0 0.0 7.0 0.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( value,
                      7, 0, 0, 0,
                      0, 7, 0, 0,
@@ -252,7 +313,10 @@ public final class Matrix4dTest
   {
     final Matrix4d value = new Matrix4d().scale( 5, 2, 3 );
     assertEquals( value.asString(),
-                  "(5.0, 0.0, 0.0, 0.0 | 0.0, 2.0, 0.0, 0.0 | 0.0, 0.0, 3.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "5.0 0.0 0.0 0.0\n" +
+                  "0.0 2.0 0.0 0.0\n" +
+                  "0.0 0.0 3.0 0.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( value,
                      5, 0, 0, 0,
                      0, 2, 0, 0,
@@ -264,7 +328,10 @@ public final class Matrix4dTest
 
     assertSame( value, other );
     assertEquals( value.asString(),
-                  "(25.0, 0.0, 0.0, 0.0 | 0.0, 4.0, 0.0, 0.0 | 0.0, 0.0, 9.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "25.0 0.0 0.0 0.0\n" +
+                  "0.0 4.0 0.0 0.0\n" +
+                  "0.0 0.0 9.0 0.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( value,
                      25, 0, 0, 0,
                      0, 4, 0, 0,
@@ -275,7 +342,10 @@ public final class Matrix4dTest
 
     assertSame( value, other2 );
     assertEquals( value.asString(),
-                  "(50.0, 0.0, 0.0, 0.0 | 0.0, 8.0, 0.0, 0.0 | 0.0, 0.0, 18.0, 0.0 | 0.0, 0.0, 0.0, 1.0)" );
+                  "50.0 0.0 0.0 0.0\n" +
+                  "0.0 8.0 0.0 0.0\n" +
+                  "0.0 0.0 18.0 0.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
     assertMatEquals( value,
                      50, 0, 0, 0,
                      0, 8, 0, 0,

@@ -464,13 +464,49 @@ public final class Matrix4d
   @Nonnull
   public String asString()
   {
+    return asColumnMajorString();
+  }
+
+  /**
+   * Returns a string representation of the matrix in column-major form.
+   * <pre>
+   * m00  m10  m20  m30
+   * m01  m11  m21  m31
+   * m02  m12  m22  m32
+   * m03  m13  m23  m33
+   * </pre>
+   *
+   * @return a string representation of the matrix in column-major form.
+   */
+  @Nonnull
+  public String asColumnMajorString()
+  {
     return
-      "(" +
-      m00 + ", " + m01 + ", " + m02 + ", " + m03 + " | " +
-      m10 + ", " + m11 + ", " + m12 + ", " + m13 + " | " +
-      m20 + ", " + m21 + ", " + m22 + ", " + m23 + " | " +
-      m30 + ", " + m31 + ", " + m32 + ", " + m33 +
-      ")";
+      m00 + " " + m10 + " " + m20 + " " + m30 + "\n" +
+      m01 + " " + m11 + " " + m21 + " " + m31 + "\n" +
+      m02 + " " + m12 + " " + m22 + " " + m32 + "\n" +
+      m03 + " " + m13 + " " + m23 + " " + m33 + "\n";
+  }
+
+  /**
+   * Returns a string representation of the matrix in row-major form.
+   * <pre>
+   * m00  m01  m02  m03
+   * m10  m11  m12  m13
+   * m20  m21  m22  m23
+   * m30  m31  m32  m33
+   * </pre>
+   *
+   * @return a string representation of the matrix in row-major form.
+   */
+  @Nonnull
+  public String asRowMajorString()
+  {
+    return
+      m00 + " " + m01 + " " + m02 + " " + m03 + "\n" +
+      m10 + " " + m11 + " " + m12 + " " + m13 + "\n" +
+      m20 + " " + m21 + " " + m22 + " " + m23 + "\n" +
+      m30 + " " + m31 + " " + m32 + " " + m33 + "\n";
   }
 
   @Override
