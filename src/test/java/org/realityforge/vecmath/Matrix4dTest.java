@@ -335,6 +335,9 @@ public final class Matrix4dTest
                      0, 0, 3, 0,
                      0, 0, 0, 1 );
 
+    // Ensure setIdentity().scale(x,y,z) is equivalent to setScale(x,y,z)
+    assertEquals( new Matrix4d().setScale( 5, 2, 3 ).asString(), value.asString() );
+
     // Verify that scale applies operation to matrix
     final Matrix4d other = value.scale( 5, 2, 3 );
 
