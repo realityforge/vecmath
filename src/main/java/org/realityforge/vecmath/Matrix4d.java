@@ -388,50 +388,50 @@ public final class Matrix4d
 
   /**
    * Fill the specified target with the matrix components starting at the specified offset.
-   * The components are emitted in row-major form.
+   * The components are emitted in column-major form.
    *
    * @param target the array in which to store the matrix components. The target must be large enough to contain the matrix.
    * @param offset the offset in the target array to start storing the matrix components.
    * @return the matrix represented as an array.
    */
   @Nonnull
-  public double[] toArray( final double[] target, final int offset )
+  public double[] toArray( @Nonnull final double[] target, final int offset )
   {
     target[ offset ] = m00;
-    target[ offset + 1 ] = m10;
-    target[ offset + 2 ] = m20;
-    target[ offset + 3 ] = m30;
-    target[ offset + 4 ] = m01;
+    target[ offset + 1 ] = m01;
+    target[ offset + 2 ] = m02;
+    target[ offset + 3 ] = m03;
+    target[ offset + 4 ] = m10;
     target[ offset + 5 ] = m11;
-    target[ offset + 6 ] = m21;
-    target[ offset + 7 ] = m31;
-    target[ offset + 8 ] = m02;
-    target[ offset + 9 ] = m12;
+    target[ offset + 6 ] = m12;
+    target[ offset + 7 ] = m13;
+    target[ offset + 8 ] = m20;
+    target[ offset + 9 ] = m21;
     target[ offset + 10 ] = m22;
-    target[ offset + 11 ] = m32;
-    target[ offset + 12 ] = m03;
-    target[ offset + 13 ] = m13;
-    target[ offset + 14 ] = m23;
+    target[ offset + 11 ] = m23;
+    target[ offset + 12 ] = m30;
+    target[ offset + 13 ] = m31;
+    target[ offset + 14 ] = m32;
     target[ offset + 15 ] = m33;
     return target;
   }
 
   /**
    * Fill the specified target with the matrix components.
-   * The components are emitted in row-major form.
+   * The components are emitted in column-major form.
    *
    * @param target the array in which to store the matrix components. The target must be large enough to contain the matrix.
    * @return the matrix represented as an array.
    */
   @Nonnull
-  public double[] toArray( final double[] target )
+  public double[] toArray( @Nonnull final double[] target )
   {
     return toArray( target, 0 );
   }
 
   /**
    * Create an array to represent the matrix.
-   * The components are emitted in row-major form.
+   * The components are emitted in column-major form.
    *
    * @return the matrix represented as an array.
    */
