@@ -70,10 +70,10 @@ public final class Matrix4d
    * @param m32 the m32 component.
    * @param m33 the m33 component.
    */
-  public Matrix4d( final double m00, final double m01, final double m02, final double m03,
-                   final double m10, final double m11, final double m12, final double m13,
-                   final double m20, final double m21, final double m22, final double m23,
-                   final double m30, final double m31, final double m32, final double m33 )
+  public Matrix4d( final double m00, final double m10, final double m20, final double m30,
+                   final double m01, final double m11, final double m21, final double m31,
+                   final double m02, final double m12, final double m22, final double m32,
+                   final double m03, final double m13, final double m23, final double m33 )
   {
     this.m00 = m00;
     this.m10 = m10;
@@ -179,10 +179,10 @@ public final class Matrix4d
    * @return this
    */
   @Nonnull
-  public Matrix4d set( final double m00, final double m01, final double m02, final double m03,
-                       final double m10, final double m11, final double m12, final double m13,
-                       final double m20, final double m21, final double m22, final double m23,
-                       final double m30, final double m31, final double m32, final double m33 )
+  public Matrix4d set( final double m00, final double m10, final double m20, final double m30,
+                       final double m01, final double m11, final double m21, final double m31,
+                       final double m02, final double m12, final double m22, final double m32,
+                       final double m03, final double m13, final double m23, final double m33 )
   {
     this.m00 = m00;
     this.m10 = m10;
