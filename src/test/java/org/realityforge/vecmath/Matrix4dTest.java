@@ -99,8 +99,16 @@ public final class Matrix4dTest
   @Test
   public void testHashCode_whenObjectEqualsDisabled()
   {
-    final Matrix4d value1 = new Matrix4d( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 );
-    final Matrix4d value2 = new Matrix4d( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 );
+    final Matrix4d value1 =
+      new Matrix4d( 1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12,
+                    13, 14, 15, 16 );
+    final Matrix4d value2 =
+      new Matrix4d( 1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12,
+                    13, 14, 15, 16 );
 
     assertMatEquals( value1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 );
     assertEquals( value1, value1 );
