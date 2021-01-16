@@ -369,6 +369,99 @@ public final class Matrix4dTest
   }
 
   @Test
+  public void rotateX()
+  {
+    final Matrix4d target = new Matrix4d();
+    assertMatEquals( target.dup().rotateX( 0 ),
+                     1, 0, 0, 0,
+                     0, 1, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateX( Math.PI / 4 ),
+                     1, 0, 0, 0,
+                     0, 0.7071067811865476, -0.7071067811865475, 0,
+                     0, 0.7071067811865475, 0.7071067811865476, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateX( Math.PI / 2 ),
+                     1, 0, 0, 0,
+                     0, 0, -1, 0,
+                     0, 1, 0, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateX( Math.PI ),
+                     1, 0, 0, 0,
+                     0, -1, 0, 0,
+                     0, 0, -1, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateX( 2 * Math.PI ),
+                     1, 0, 0, 0,
+                     0, 1, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1 );
+  }
+
+  @Test
+  public void rotateY()
+  {
+    final Matrix4d target = new Matrix4d();
+    assertMatEquals( target.dup().rotateY( 0 ),
+                     1, 0, 0, 0,
+                     0, 1, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateY( Math.PI / 4 ),
+                     0.7071067811865476, 0, 0.7071067811865475, 0,
+                     0, 1, 0, 0,
+                     -0.7071067811865475, 0, 0.7071067811865476, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateY( Math.PI / 2 ),
+                     0, 0, 1, 0,
+                     0, 1, 0, 0,
+                     -1, 0, 0, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateY( Math.PI ),
+                     -1, 0, 0, 0,
+                     0, 1, 0, 0,
+                     0, 0, -1, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateY( 2 * Math.PI ),
+                     1, 0, 0, 0,
+                     0, 1, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1 );
+  }
+
+  @Test
+  public void rotateZ()
+  {
+    final Matrix4d target = new Matrix4d();
+    assertMatEquals( target.dup().rotateZ( 0 ),
+                     1, 0, 0, 0,
+                     0, 1, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateZ( Math.PI / 4 ),
+                     0.7071067811865476, -0.7071067811865475, 0, 0,
+                     0.7071067811865475, 0.7071067811865476, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateZ( Math.PI / 2 ),
+                     0, -1, 0, 0,
+                     1, 0, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateZ( Math.PI ),
+                     -1, 0, 0, 0,
+                     0, -1, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1 );
+    assertMatEquals( target.dup().rotateZ( 2 * Math.PI ),
+                     1, 0, 0, 0,
+                     0, 1, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1 );
+  }
+
+  @Test
   public void setPerspective()
   {
     final Matrix4d target = new Matrix4d();

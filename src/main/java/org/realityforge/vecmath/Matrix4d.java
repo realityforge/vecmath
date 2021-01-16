@@ -386,6 +386,89 @@ public final class Matrix4d
     return scale( k, k, k );
   }
 
+  /**
+   * Apply a rotation about the X axis by rotating the specified amount of radians.
+   *
+   * @param angleInRadians the angle in radians
+   * @return this
+   * @see <a href="http://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations">Basic Matrix rotations</a>
+   */
+  @Nonnull
+  public Matrix4d rotateX( final double angleInRadians )
+  {
+    final double sin = Math.sin( angleInRadians );
+    final double cos = Math.cos( angleInRadians );
+
+    final double nm10 = m10 * cos + m20 * sin;
+    final double nm11 = m11 * cos + m21 * sin;
+    final double nm12 = m12 * cos + m22 * sin;
+    final double nm13 = m13 * cos + m23 * sin;
+
+    m20 = m10 * -sin + m20 * cos;
+    m21 = m11 * -sin + m21 * cos;
+    m22 = m12 * -sin + m22 * cos;
+    m23 = m13 * -sin + m23 * cos;
+    m10 = nm10;
+    m11 = nm11;
+    m12 = nm12;
+    m13 = nm13;
+    return this;
+  }
+
+  /**
+   * Apply a rotation about the Y axis by rotating the specified amount of radians.
+   *
+   * @param angleInRadians the angle in radians
+   * @return this
+   * @see <a href="http://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations">Basic Matrix rotations</a>
+   */
+  @Nonnull
+  public Matrix4d rotateY( final double angleInRadians )
+  {
+    final double sin = Math.sin( angleInRadians );
+    final double cos = Math.cos( angleInRadians );
+
+    final double nm00 = m00 * cos + m20 * -sin;
+    final double nm01 = m01 * cos + m21 * -sin;
+    final double nm02 = m02 * cos + m22 * -sin;
+    final double nm03 = m03 * cos + m23 * -sin;
+    m20 = m00 * sin + m20 * cos;
+    m21 = m01 * sin + m21 * cos;
+    m22 = m02 * sin + m22 * cos;
+    m23 = m03 * sin + m23 * cos;
+    m00 = nm00;
+    m01 = nm01;
+    m02 = nm02;
+    m03 = nm03;
+    return this;
+  }
+
+  /**
+   * Apply a rotation about the Z axis by rotating the specified amount of radians.
+   *
+   * @param angleInRadians the angle in radians
+   * @return this
+   * @see <a href="http://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations">Basic Matrix rotations</a>
+   */
+  @Nonnull
+  public Matrix4d rotateZ( final double angleInRadians )
+  {
+    final double sin = Math.sin( angleInRadians );
+    final double cos = Math.cos( angleInRadians );
+    final double nm00 = m00 * cos + m10 * sin;
+    final double nm01 = m01 * cos + m11 * sin;
+    final double nm02 = m02 * cos + m12 * sin;
+    final double nm03 = m03 * cos + m13 * sin;
+    m10 = m00 * -sin + m10 * cos;
+    m11 = m01 * -sin + m11 * cos;
+    m12 = m02 * -sin + m12 * cos;
+    m13 = m03 * -sin + m13 * cos;
+    m00 = nm00;
+    m01 = nm01;
+    m02 = nm02;
+    m03 = nm03;
+    return this;
+  }
 
   /**
    * Set this matrix to be a symmetric perspective projection frustum transformation for a right-handed coordinate system.
