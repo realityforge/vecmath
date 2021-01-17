@@ -5,4 +5,3 @@ Unfortunately it is not complete enough for other people to pick work off the li
 complete as there is too much un-said.
 
 * Start to introduce Clifford Algebra operations.
-
