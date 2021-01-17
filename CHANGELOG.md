@@ -1,6 +1,7 @@
 # Change Log
 
-### Unreleased
+### [v0.09](https://github.com/realityforge/vecmath/tree/v0.09) (2021-01-17)
+[Full Changelog](https://github.com/realityforge/vecmath/compare/v0.08...v0.09)
 
 * Upgrade the `org.realityforge.org.jetbrains.annotations` artifact to version `1.7.0`.
 * Add `Matrix4d.setTranslation(x,y,z)` method to change matrix into translation matrix.
