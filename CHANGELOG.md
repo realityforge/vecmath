@@ -12,6 +12,7 @@
 * Change the `Matrix4d.asString()` method to layout the matrix components in multi-line column major format rather than a single line row-major format. Introduce the methods `Matrix4d.asColumnMajorString()` and `Matrix4d.asRowMajorString()` so that the desired string form can be explicitly requested.
 * Add `Matrix4d.setPerspective(...)` method to set matrix up with a perspective projection.
 * Add basic rotations to `Matrix4d` in the form `Matrix4d.rotateX(double)`, `Matrix4d.rotateY(double)` and `Matrix4d.rotateZ(double)`.
+* Add the `Matrix4d.lookAt(eye,center,up)` helper method to apply the "lookAt" transformation.
 
 ### [v0.08](https://github.com/realityforge/vecmath/tree/v0.08) (2020-10-24)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.07...v0.08)

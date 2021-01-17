@@ -491,4 +491,25 @@ public final class Matrix4dTest
                      0, 0, -1, 0 );
     assertSame( value2, target );
   }
+
+  @Test
+  public void lookAt()
+  {
+    final Vector3d eye = new Vector3d( 0, 10, 10 );
+    final Vector3d center = new Vector3d( 10, 10, 10 );
+    final Vector3d up = new Vector3d( 0, 1, 0 );
+    final Matrix4d target = new Matrix4d();
+    final Matrix4d value = target.lookAt( eye, center, up );
+    assertEquals( value.asString(),
+                  "0.0 0.0 1.0 -10.0\n" +
+                  "0.0 1.0 0.0 -10.0\n" +
+                  "-1.0 0.0 0.0 0.0\n" +
+                  "0.0 0.0 0.0 1.0\n" );
+    assertMatEquals( value,
+                     0, 0, 1, -10,
+                     0, 1, 0, -10,
+                     -1, 0, 0, 0,
+                     0, 0, 0, 1 );
+    assertSame( value, target );
+  }
 }
