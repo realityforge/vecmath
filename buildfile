@@ -25,7 +25,7 @@ define 'vecmath' do
                :jsinterop_annotations,
                :grim_annotations
 
-  project.processorpath << artifacts(:grim_processor, :javax_json)
+  compile.options[:processor_path] << artifacts(:grim_processor, :javax_json)
 
   gwt_enhance(project)
 
