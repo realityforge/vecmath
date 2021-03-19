@@ -15,7 +15,7 @@ def gwt_enhance(project, options = {})
     a.is_a?(String) ? file(a) : a
   end
 
-  if project.enable_annotation_processor?
+  if !!project.compile.options[:processor] || (project.compile.options[:processor].nil? && !(project.compile.options[:processor_path] || []).empty?)
     extra_deps += [project.file(project._(:generated, 'processors/main/java'))]
   end
 
