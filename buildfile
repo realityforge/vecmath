@@ -5,6 +5,8 @@ require 'buildr/top_level_generate_dir'
 require 'buildr/jacoco'
 require 'buildr/gwt'
 
+Buildr::MavenCentral.define_publish_tasks(:profile_name => 'org.realityforge', :username => 'realityforge')
+
 desc 'vecmath: A Java vector math library'
 define 'vecmath' do
   project.group = 'org.realityforge.vecmath'
