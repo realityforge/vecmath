@@ -100,6 +100,20 @@ abstract class AbstractTest
                   "Expected " + actual + " to contain an z component of " + z + ". Expected: " + expected );
   }
 
+  void assertUniformScaleMatrix( @Nonnull final Matrix4d matrix, final double scale )
+  {
+    assertMatEquals( matrix,
+                     scale, 0.0, 0.0, 0.0,
+                     0.0, scale, 0.0, 0.0,
+                     0.0, 0.0, scale, 0.0,
+                     0.0, 0.0, 0.0, 1.0 );
+  }
+
+  void assertIdentityMatrix( @Nonnull final Matrix4d matrix )
+  {
+    assertUniformScaleMatrix( matrix, 1.0 );
+  }
+
   void assertMatEquals( @Nonnull final Matrix4d actual,
                         final double m00, final double m10, final double m20, final double m30,
                         final double m01, final double m11, final double m21, final double m31,
