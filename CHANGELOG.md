@@ -1,6 +1,8 @@
 # Change Log
 
-### Unreleased
+### [v0.11](https://github.com/realityforge/vecmath/tree/v0.11) (2021-08-09) · [Full Changelog](https://github.com/spritz/spritz/compare/v0.10...v0.11)
+
+Changes in this release:
 
 * Remove test dependencies from the pom as not needed by downstream libraries.
 * Make the `org.realityforge.grim` dependency transitive in the generated pom to reflect actual intent.
