@@ -2,6 +2,7 @@
 
 ### Unreleased
 
+* Remove test dependencies from the pom as not needed by downstream libraries.
 * Make the `org.realityforge.grim` dependency transitive in the generated pom to reflect actual intent.
 
 ### [v0.10](https://github.com/realityforge/vecmath/tree/v0.10) (2021-08-09) · [Full Changelog](https://github.com/spritz/spritz/compare/v0.09...v0.10)

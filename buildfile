@@ -22,6 +22,7 @@ define 'vecmath' do
 
   deps = artifacts(:javax_annotation, :jsinterop_annotations, :grim_annotations)
   pom.include_transitive_dependencies << deps
+  pom.dependency_filter = Proc.new { |dep| dep[:scope].to_s != 'test' && deps.include?(dep[:artifact]) }
 
   compile.with deps
 
