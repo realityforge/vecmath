@@ -20,12 +20,10 @@ define 'vecmath' do
   pom.add_github_project('realityforge/vecmath')
   pom.add_developer('realityforge', 'Peter Donald')
 
-  pom.include_transitive_dependencies << artifact(:javax_annotation)
-  pom.include_transitive_dependencies << artifact(:jsinterop_annotations)
+  deps = artifacts(:javax_annotation, :jsinterop_annotations, :grim_annotations)
+  pom.include_transitive_dependencies << deps
 
-  compile.with :javax_annotation,
-               :jsinterop_annotations,
-               :grim_annotations
+  compile.with deps
 
   compile.options[:processor_path] << artifacts(:grim_processor, :javax_json)
 
