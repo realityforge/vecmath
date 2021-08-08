@@ -1,6 +1,8 @@
 # Change Log
 
-### Unreleased
+### [v0.10](https://github.com/realityforge/vecmath/tree/v0.10) (2021-08-09) · [Full Changelog](https://github.com/spritz/spritz/compare/v0.09...v0.10)
+
+Changes in this release:
 
 * Upgrade the `org.realityforge.grim` artifacts to version `0.05`.
 * Upgrade the `au.com.stocksoftware.idea.codestyle` artifact to version `1.17`.
