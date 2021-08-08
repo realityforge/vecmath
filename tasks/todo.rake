@@ -1,9 +1,7 @@
-require File.expand_path(File.dirname(__FILE__) + '/util')
-
 def scan_todos
   found_todos = false
 
-  `cd #{WORKSPACE_DIR} && git ls-files`.split("\n").
+  `cd #{File.expand_path(File.dirname(__FILE__) + '/..')} && git ls-files`.split("\n").
     select {|f| f =~ /\.java$/}.
     select {|f| File.exist?(f)}.
     each do |f|
