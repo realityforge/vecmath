@@ -508,4 +508,91 @@ public final class Matrix4dTest
                      0, 0, 0, 1 );
     assertSame( value, target );
   }
+
+  @Test
+  public void multiply()
+  {
+    final Matrix4d matrix1 = new Matrix4d().setIdentity();
+    final Matrix4d matrix2 = new Matrix4d().setIdentity().scale( 5 );
+    final Matrix4d matrix3 =
+      new Matrix4d( 1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12,
+                    13, 14, 15, 16 );
+
+    final Matrix4d tmp = new Matrix4d();
+
+    Matrix4d.multiply( tmp, matrix1, matrix1 );
+    assertIdentityMatrix( tmp );
+    // Make sure the state of matrix1 is unchanged
+    assertIdentityMatrix( matrix1 );
+
+    Matrix4d.multiply( tmp, matrix1, matrix2 );
+    assertUniformScaleMatrix( tmp, 5.0 );
+    // Make sure the state of matrix1 is unchanged
+    assertIdentityMatrix( matrix1 );
+    // Make sure the state of matrix2 is unchanged
+    assertUniformScaleMatrix( matrix2, 5.0 );
+
+    Matrix4d.multiply( tmp, matrix2, matrix2 );
+    assertUniformScaleMatrix( tmp, 25.0 );
+    // Make sure the state of matrix2 is unchanged
+    assertUniformScaleMatrix( matrix2, 5.0 );
+
+    Matrix4d.multiply( tmp, matrix1, matrix3 );
+    assertMatEquals( tmp,
+                     1, 2, 3, 4,
+                     5, 6, 7, 8,
+                     9, 10, 11, 12,
+                     13, 14, 15, 16 );
+    // Make sure the state of matrix1 is unchanged
+    assertIdentityMatrix( matrix1 );
+    // Make sure the state of matrix2 is unchanged
+    assertMatEquals( matrix3,
+                     1, 2, 3, 4,
+                     5, 6, 7, 8,
+                     9, 10, 11, 12,
+                     13, 14, 15, 16 );
+
+    Matrix4d.multiply( tmp, matrix3, matrix1 );
+    assertMatEquals( tmp,
+                     1, 2, 3, 4,
+                     5, 6, 7, 8,
+                     9, 10, 11, 12,
+                     13, 14, 15, 16 );
+    // Make sure the state of matrix1 is unchanged
+    assertIdentityMatrix( matrix1 );
+    // Make sure the state of matrix3 is unchanged
+    assertMatEquals( matrix3,
+                     1, 2, 3, 4,
+                     5, 6, 7, 8,
+                     9, 10, 11, 12,
+                     13, 14, 15, 16 );
+
+    Matrix4d.multiply( tmp, matrix3, matrix2 );
+    assertMatEquals( tmp,
+                     5, 10, 15, 20,
+                     25, 30, 35, 40,
+                     45, 50, 55, 60,
+                     13, 14, 15, 16 );
+    // Make sure the state of matrix2 is unchanged
+    assertUniformScaleMatrix( matrix2, 5.0 );
+    // Make sure the state of matrix2 is unchanged
+    assertMatEquals( matrix3,
+                     1, 2, 3, 4,
+                     5, 6, 7, 8,
+                     9, 10, 11, 12,
+                     13, 14, 15, 16 );
+
+    final Matrix4d result = matrix3.multiply( matrix2 );
+    // Make sure the state of matrix2 is unchanged
+    assertUniformScaleMatrix( matrix2, 5.0 );
+    assertMatEquals( result,
+                     5, 10, 15, 20,
+                     25, 30, 35, 40,
+                     45, 50, 55, 60,
+                     13, 14, 15, 16 );
+    //noinspection SimplifiableAssertion,ConstantConditions
+    assertTrue( result == matrix3 );
+  }
 }

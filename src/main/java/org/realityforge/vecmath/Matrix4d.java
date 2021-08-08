@@ -471,6 +471,84 @@ public final class Matrix4d
   }
 
   /**
+   * Multiply this matrix by the matrix <code>right</code> and store the result in this matrix.
+   *
+   * @param right the right operand of the multiplication.
+   * @return this the result of the operation.
+   */
+  @Nonnull
+  public Matrix4d multiply( @Nonnull final Matrix4d right )
+  {
+    multiply( this, this, right );
+    return this;
+  }
+
+  /**
+   * Multiply the matrix <code>left</code> by the matrix <code>right</code> and place the result in <code>result</code>.
+   *
+   * @param result the matrix where the result is stored. May be the same instance as the other parameters.
+   * @param left   the left operand of the multiplication.
+   * @param right  the right operand of the multiplication.
+   */
+  public static void multiply( @Nonnull final Matrix4d result,
+                               @Nonnull final Matrix4d left,
+                               @Nonnull final Matrix4d right )
+  {
+    final double a00 = left.m00;
+    final double a01 = left.m01;
+    final double a02 = left.m02;
+    final double a03 = left.m03;
+    final double a10 = left.m10;
+    final double a11 = left.m11;
+    final double a12 = left.m12;
+    final double a13 = left.m13;
+    final double a20 = left.m20;
+    final double a21 = left.m21;
+    final double a22 = left.m22;
+    final double a23 = left.m23;
+    final double a30 = left.m30;
+    final double a31 = left.m31;
+    final double a32 = left.m32;
+    final double a33 = left.m33;
+
+    final double b00 = right.m00;
+    final double b01 = right.m01;
+    final double b02 = right.m02;
+    final double b03 = right.m03;
+    final double b10 = right.m10;
+    final double b11 = right.m11;
+    final double b12 = right.m12;
+    final double b13 = right.m13;
+    final double b20 = right.m20;
+    final double b21 = right.m21;
+    final double b22 = right.m22;
+    final double b23 = right.m23;
+    final double b30 = right.m30;
+    final double b31 = right.m31;
+    final double b32 = right.m32;
+    final double b33 = right.m33;
+    result.set( a00 * b00 + a01 * b10 + a02 * b20 + a03 * b30,
+                a10 * b00 + a11 * b10 + a12 * b20 + a13 * b30,
+                a20 * b00 + a21 * b10 + a22 * b20 + a23 * b30,
+                a30 * b00 + a31 * b10 + a32 * b20 + a33 * b30,
+
+                a00 * b01 + a01 * b11 + a02 * b21 + a03 * b31,
+                a10 * b01 + a11 * b11 + a12 * b21 + a13 * b31,
+                a20 * b01 + a21 * b11 + a22 * b21 + a23 * b31,
+                a30 * b01 + a31 * b11 + a32 * b21 + a33 * b31,
+
+                a00 * b02 + a01 * b12 + a02 * b22 + a03 * b32,
+                a10 * b02 + a11 * b12 + a12 * b22 + a13 * b32,
+                a20 * b02 + a21 * b12 + a22 * b22 + a23 * b32,
+                a30 * b02 + a31 * b12 + a32 * b22 + a33 * b32,
+
+                a00 * b03 + a01 * b13 + a02 * b23 + a03 * b33,
+                a10 * b03 + a11 * b13 + a12 * b23 + a13 * b33,
+                a20 * b03 + a21 * b13 + a22 * b23 + a23 * b33,
+                a30 * b03 + a31 * b13 + a32 * b23 + a33 * b33 );
+  }
+
+  /**
    * Set this matrix to be a symmetric perspective projection frustum transformation for a right-handed coordinate system.
    *
    * @param fovY   the vertical field of view in radians (must be greater than zero and less than {@link Math#PI PI})

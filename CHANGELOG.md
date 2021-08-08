@@ -4,6 +4,7 @@
 
 * Upgrade the `org.realityforge.grim` artifacts to version `0.05`.
 * Upgrade the `au.com.stocksoftware.idea.codestyle` artifact to version `1.17`.
+* Add `Matrix4d.multiply(...)` static and instance methods.
 
 ### [v0.09](https://github.com/realityforge/vecmath/tree/v0.09) (2021-01-17)
 [Full Changelog](https://github.com/realityforge/vecmath/compare/v0.08...v0.09)
