@@ -1,5 +1,7 @@
 # Change Log
 
+### Unreleased
+
 ### [v0.12](https://github.com/realityforge/vecmath/tree/v0.12) (2021-08-13) · [Full Changelog](https://github.com/spritz/spritz/compare/v0.11...v0.12)
 
 Changes in this release:
