@@ -10,6 +10,18 @@ import javax.annotation.Nonnull;
 public final class Vector3f
 {
   /**
+   * The number of components in the {@code Vector3d}.
+   */
+  public static final int COMPONENTS = 3;
+  /**
+   * The number of bits used to represent a {@code Vector3d} value.
+   */
+  public static final int SIZE = Float.SIZE * COMPONENTS;
+  /**
+   * The number of bytes used to represent a {@code Vector3d} value.
+   */
+  public static final int BYTES = Float.BYTES * COMPONENTS;
+  /**
    * The x component.
    */
   public float x;

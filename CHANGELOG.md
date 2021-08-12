@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+* Add constants `COMPONENTS`, `BYTES`, `SIZE`, `FLOAT_SIZE` and `FLOAT_BYTES` to the types `Matrix4d`, `Vector2d`, `Vector3f`, `Vector3d` and `Vector4d` to simplify operations when manipulating buffers containing these values.
+
 ### [v0.11](https://github.com/realityforge/vecmath/tree/v0.11) (2021-08-09) · [Full Changelog](https://github.com/spritz/spritz/compare/v0.10...v0.11)
 
 Changes in this release:

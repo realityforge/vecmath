@@ -10,6 +10,30 @@ import javax.annotation.Nonnull;
 public final class Vector2d
 {
   /**
+   * The number of components in the {@code Vector2d}.
+   */
+  public static final int COMPONENTS = 2;
+  /**
+   * The number of bits used to represent a {@code Vector2d} value.
+   */
+  public static final int SIZE = Double.SIZE * COMPONENTS;
+  /**
+   * The number of bytes used to represent a {@code Vector2d} value.
+   */
+  public static final int BYTES = Double.BYTES * COMPONENTS;
+  /**
+   * The number of bits used to represent a {@code Vector2d} value at half-precision.
+   * This is useful as the type is often converted to floats when passed to other frameworks
+   * such as WebGL or WebGPU.
+   */
+  public static final int FLOAT_SIZE = Float.SIZE * COMPONENTS;
+  /**
+   * The number of bytes used to represent a {@code Vector2d} value at half-precision.
+   * This is useful as the type is often converted to floats when passed to other frameworks
+   * such as WebGL or WebGPU.
+   */
+  public static final int FLOAT_BYTES = Float.BYTES * COMPONENTS;
+  /**
    * The x component.
    */
   public double x;

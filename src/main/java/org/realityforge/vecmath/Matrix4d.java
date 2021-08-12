@@ -25,6 +25,30 @@ import javax.annotation.Nonnull;
  */
 public final class Matrix4d
 {
+  /**
+   * The number of components in the {@code Matrix4d}.
+   */
+  public static final int COMPONENTS = 16;
+  /**
+   * The number of bits used to represent a {@code Matrix4d} value.
+   */
+  public static final int SIZE = Double.SIZE * COMPONENTS;
+  /**
+   * The number of bytes used to represent a {@code Matrix4d} value.
+   */
+  public static final int BYTES = Double.BYTES * COMPONENTS;
+  /**
+   * The number of bits used to represent a {@code Matrix4d} value at half-precision.
+   * This is useful as the type is often converted to floats when passed to other frameworks
+   * such as WebGL or WebGPU.
+   */
+  public static final int FLOAT_SIZE = Float.SIZE * COMPONENTS;
+  /**
+   * The number of bytes used to represent a {@code Matrix4d} value at half-precision.
+   * This is useful as the type is often converted to floats when passed to other frameworks
+   * such as WebGL or WebGPU.
+   */
+  public static final int FLOAT_BYTES = Float.BYTES * COMPONENTS;
   public double m00;
   public double m01;
   public double m02;
