@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+* Update the `org.realityforge.grim` artifacts to version `0.06`.
+
 ### [v0.12](https://github.com/realityforge/vecmath/tree/v0.12) (2021-08-13) · [Full Changelog](https://github.com/spritz/spritz/compare/v0.11...v0.12)
 
 Changes in this release:
