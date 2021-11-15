@@ -13,6 +13,8 @@ artifacts:
   javax_annotation: org.realityforge.javax.annotation:javax.annotation:jar:1.0.1
   jetbrains_annotations: org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0
 
+  joml: org.joml:joml:jar:1.10.2
+
   # GWT deps
   gwt_user: com.google.gwt:gwt-user:jar:2.9.0
   gwt_dev: com.google.gwt:gwt-dev:jar:2.9.0

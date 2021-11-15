@@ -35,6 +35,7 @@ define 'vecmath' do
   package(:javadoc)
 
   test.using :testng
+  test.compile.with :joml
   test.options[:java_args] = %w(-ea)
   test.options[:properties] = { 'vecmath.environment' => 'development' }
 
