@@ -245,6 +245,29 @@ public final class Vector3dTest
   }
 
   @Test
+  public void mul_Matrix4d()
+  {
+    assertMulMatrix4d( 2, 3, 4,
+                       2, 3, 4,
+                       new Matrix4d().setIdentity() );
+    assertMulMatrix4d( 2, 3, 4,
+                       6, 9, 12,
+                       new Matrix4d().setIdentity().scale( 3 ) );
+    assertMulMatrix4d( 1, 4, 8,
+                       4, 8, 4,
+                       new Matrix4d().setIdentity().scale( 4, 2, 0.5 ) );
+  }
+
+  private void assertMulMatrix4d( final double x1, final double y1, final double z1,
+                                  final double x2, final double y2, final double z2,
+                                  @Nonnull final Matrix4d matrix )
+  {
+    final Vector3d value = new Vector3d( x1, y1, z1 );
+    final Vector3d result = value.dup().mul( matrix );
+    assertVecEquals( result, x2, y2, z2 );
+  }
+
+  @Test
   public void dot()
   {
     // Dot between orthogonal axis should be zero

@@ -301,6 +301,26 @@ public final class Vector3d
   }
 
   /**
+   * Multiply this by the specified matrix, performing perspective division.
+   * This method assumes <code>w=1.0</code> as the fourth vector component.
+   *
+   * @param m the matrix to multiply this vector.
+   * @return this
+   */
+  @Nonnull
+  public Vector3d mul( @Nonnull final Matrix4d m )
+  {
+    final double invW = 1.0 / ( m.m03 * x + m.m13 * y + m.m23 * z + m.m33 );
+    final double rx = ( m.m00 * x + m.m10 * y + m.m20 * z + m.m30 ) * invW;
+    final double ry = ( m.m01 * x + m.m11 * y + m.m21 * z + m.m31 ) * invW;
+    final double rz = ( m.m02 * x + m.m12 * y + m.m22 * z + m.m32 ) * invW;
+    this.x = rx;
+    this.y = ry;
+    this.z = rz;
+    return this;
+  }
+
+  /**
    * Compute the dot product of this vector and the other vector.
    *
    * @param other the other vector.
