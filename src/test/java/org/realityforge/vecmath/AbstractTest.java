@@ -115,6 +115,17 @@ abstract class AbstractTest
   }
 
   void assertMatEquals( @Nonnull final Matrix4d actual,
+                        @Nonnull final org.joml.Matrix4d expected )
+  {
+    assertMatEquals( actual,
+                     expected.m00(), expected.m01(), expected.m02(), expected.m03(),
+                     expected.m10(), expected.m11(), expected.m12(), expected.m13(),
+                     expected.m20(), expected.m21(), expected.m22(), expected.m23(),
+                     expected.m30(), expected.m31(), expected.m32(), expected.m33(),
+                     0.00001 );
+  }
+
+  void assertMatEquals( @Nonnull final Matrix4d actual,
                         final double m00, final double m10, final double m20, final double m30,
                         final double m01, final double m11, final double m21, final double m31,
                         final double m02, final double m12, final double m22, final double m32,
