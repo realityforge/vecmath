@@ -595,4 +595,48 @@ public final class Matrix4dTest
     //noinspection SimplifiableAssertion,ConstantConditions
     assertTrue( result == matrix3 );
   }
+
+  @Test
+  public void setOrthographic()
+  {
+    {
+      final Matrix4d value =
+        new Matrix4d().setOrthographic( -80, 80, 80, -80, -200, 300 );
+
+      final org.joml.Matrix4d result =
+        new org.joml.Matrix4d().ortho( -80, 80, -80, 80, -200, 300, false );
+      assertMatEquals( value, result );
+
+      assertEquals( value.asString(),
+                    "0.0125 0.0 0.0 0.0\n" +
+                    "0.0 0.0125 0.0 0.0\n" +
+                    "0.0 0.0 -0.004 0.0\n" +
+                    "0.0 0.0 -0.2 1.0\n" );
+      assertMatEquals( value,
+                       0.0125, 0, 0, 0,
+                       0, 0.0125, 0, 0,
+                       0, 0, -0.004, 0,
+                       0, 0, -0.2, 1 );
+    }
+
+    {
+      final Matrix4d value =
+        new Matrix4d().setOrthographic( -80, 80, 80, -80, -200, 300, true );
+
+      final org.joml.Matrix4d result =
+        new org.joml.Matrix4d().ortho( -80, 80, -80, 80, -200, 300, true );
+      assertMatEquals( value, result );
+
+      assertEquals( value.asString(),
+                    "0.0125 0.0 0.0 0.0\n" +
+                    "0.0 0.0125 0.0 0.0\n" +
+                    "0.0 0.0 -0.002 0.0\n" +
+                    "0.0 0.0 0.4 1.0\n" );
+      assertMatEquals( value,
+                       0.0125, 0, 0, 0,
+                       0, 0.0125, 0, 0,
+                       0, 0, -0.002, 0,
+                       0, 0, 0.4, 1 );
+    }
+  }
 }

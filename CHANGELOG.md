@@ -4,6 +4,7 @@
 
 * Update the `org.realityforge.grim` artifacts to version `0.06`.
 * Add `Vector3d.mult(Matrix4d)` method.
+* Add the `Matrix4d.setOrthographic(...)` support method.
 
 ### [v0.12](https://github.com/realityforge/vecmath/tree/v0.12) (2021-08-13) · [Full Changelog](https://github.com/spritz/spritz/compare/v0.11...v0.12)
 

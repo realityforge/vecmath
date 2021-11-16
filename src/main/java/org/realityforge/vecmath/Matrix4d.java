@@ -573,6 +573,66 @@ public final class Matrix4d
   }
 
   /**
+   * Apply an orthographic projection transformation for a right-handed coordinate system
+   * using the WebGL NDC z range <code>[-1..+1]</code> and return the result.
+   *
+   * @param left   the distance from the center to the left frustum edge
+   * @param right  the distance from the center to the right frustum edge
+   * @param bottom the distance from the center to the bottom frustum edge
+   * @param top    the distance from the center to the top frustum edge
+   * @param near   near clipping plane distance
+   * @param far    far clipping plane distance
+   * @return this
+   * @see <a href="https://github.com/JOML-CI/JOML/blob/main/src/org/joml/Matrix4d.java">Derived from equivalent in org.joml.Matrix4d</a>
+   */
+  @Nonnull
+  public Matrix4d setOrthographic( final double left,
+                                   final double right,
+                                   final double top,
+                                   final double bottom,
+                                   final double near,
+                                   final double far )
+  {
+    return setOrthographic( left, right, top, bottom, near, far, false );
+  }
+
+  /**
+   * Apply an orthographic projection transformation for a right-handed coordinate system
+   * using the given NDC z range to this matrix and return the result.
+   *
+   * @param left       the distance from the center to the left frustum edge
+   * @param right      the distance from the center to the right frustum edge
+   * @param bottom     the distance from the center to the bottom frustum edge
+   * @param top        the distance from the center to the top frustum edge
+   * @param near       near clipping plane distance
+   * @param far        far clipping plane distance
+   * @param zZeroToOne whether to use WebGPU NDC z range of <code>[0..+1]</code> when <code>true</code>
+   *                   or whether to use WebGL's NDC z range of <code>[-1..+1]</code> when <code>false</code>.
+   * @return this
+   * @see <a href="https://github.com/JOML-CI/JOML/blob/main/src/org/joml/Matrix4d.java">Derived from equivalent in org.joml.Matrix4d</a>
+   */
+  @Nonnull
+  public Matrix4d setOrthographic( final double left,
+                                   final double right,
+                                   final double top,
+                                   final double bottom,
+                                   final double near,
+                                   final double far,
+                                   final boolean zZeroToOne )
+  {
+    final double m00 = 2 / ( right - left );
+    final double m11 = 2 / ( top - bottom );
+    final double m22 = ( zZeroToOne ? 1.0 : 2.0 ) / ( near - far );
+    final double m03 = ( right + left ) / ( right - left );
+    final double m13 = ( top + bottom ) / ( top - bottom );
+    final double m23 = ( zZeroToOne ? near : ( far + near ) ) / ( near - far );
+    return set( m00, 0, 0, 0,
+                0, m11, 0, 0,
+                0, 0, m22, 0,
+                m03, m13, m23, 1 );
+  }
+
+  /**
    * Set this matrix to be a symmetric perspective projection frustum transformation for a right-handed coordinate system.
    *
    * @param fovY   the vertical field of view in radians (must be greater than zero and less than {@link Math#PI PI})
