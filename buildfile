@@ -9,8 +9,8 @@ Buildr::MavenCentral.define_publish_tasks(:profile_name => 'org.realityforge', :
 desc 'vecmath: A Java vector math library'
 define 'vecmath' do
   project.group = 'org.realityforge.vecmath'
-  compile.options.source = '1.8'
-  compile.options.target = '1.8'
+  compile.options.source = '17'
+  compile.options.target = '17'
   compile.options.lint = 'all'
 
   project.version = ENV['PRODUCT_VERSION'] if ENV['PRODUCT_VERSION']
